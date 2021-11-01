@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MyCryptoNow</string>
+
+    //Agregar
+    <string name="agregar">Agregar crypto</string>
+    <string name="qr">Codigo QR</string>
+    <string name="descripcion_agregar">Agrega la información de tu crypto</string>
+    <string name="btnagregar">Agregar</string>
+    <string name="btnregresar">Regresar</string>
+
+
 </resources>
