@@ -30,5 +30,15 @@
     <string name="ingresar_apPaterno">Ingrese su Apellido Paterno</string>
     <string name="ingresar_apMaterno">Ingrese su Apellido Materno</string>
     <string name="ingresar_usuario">Ingrese su Nombre de Usuario</string>
+ 
+
+    //Agregar
+    <string name="agregar">Agregar crypto</string>
+    <string name="qr">Codigo QR</string>
+    <string name="descripcion_agregar">Agrega la información de tu crypto</string>
+    <string name="btnagregar">Agregar</string>
+    <string name="btnregresar">Regresar</string>
+
+
 
 </resources>
