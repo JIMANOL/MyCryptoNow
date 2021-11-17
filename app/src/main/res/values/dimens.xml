@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //Principal
+    <dimen name="titulo_principal">40sp</dimen>
+    <dimen name="slogan">15sp</dimen>
+
+    //Espaciados
+    <dimen name="espaciado_enorme">100dp</dimen>
+    <dimen name="espaciado_grande">70dp</dimen>
+    <dimen name="espaciado_amplio">40dp</dimen>
+    <dimen name="espaciado_normal">20dp</dimen>
+    <dimen name="espaciado_mediana">15dp</dimen>
+    <dimen name="espaciado_pequenia">10dp</dimen>
+    <dimen name="espaciado_minima">5dp</dimen>
+
+    //Dimenciones imagenes
+    <dimen name="imagen_enorme">200dp</dimen>
+    <dimen name="imagen_grande">100dp</dimen>
+    <dimen name="imagen_mediana">80dp</dimen>
+
+    //Tananios de letras
+    <dimen name="grande_text">28sp</dimen>
+    <dimen name="normal_text">18sp</dimen>
+    <dimen name="pequenia_text">15sp</dimen>
+
+
+</resources>

@@ -3,7 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/font-v26/roboto.xml" value="0.28020833333333334" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/font/roboto.xml" value="0.2299145299145299" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/activity_login_usuario.xml" value="0.2359375" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/activity_registro.xml" value="0.264" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/fragment_bienvenida.xml" value="0.25" />
       </map>
     </option>
   </component>

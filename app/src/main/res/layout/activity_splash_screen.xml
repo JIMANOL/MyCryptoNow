@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.loading.SplashScreenActivity">
+
+    <ImageView
+        android:id="@+id/ivLogoSplash"
+        android:layout_marginTop="@dimen/espaciado_enorme"
+        android:layout_width="@dimen/imagen_enorme"
+        android:layout_height="@dimen/imagen_enorme"
+        android:layout_gravity="center"
+        android:src="@color/purple_200"/>
+
+    <TextView
+        android:id="@+id/tvTituloSplash"
+        android:layout_marginTop="@dimen/espaciado_amplio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_nombre"
+        android:layout_gravity="center"
+        android:textSize="@dimen/titulo_principal"
+        android:fontFamily="@font/robotoslab_bold"/>
+
+
+    <TextView
+        android:id="@+id/tvSloganSplash"
+        android:layout_marginTop="@dimen/espaciado_mediana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_slogan"
+        android:layout_gravity="center"
+        android:textSize="@dimen/slogan"
+        android:fontFamily="@font/robotoslab_light"/>
+
+    <ProgressBar
+        android:layout_marginTop="@dimen/espaciado_amplio"
+        android:layout_width="@dimen/imagen_mediana"
+        android:layout_height="@dimen/imagen_mediana"
+        android:layout_gravity="center"/>
+
+
+</LinearLayout>

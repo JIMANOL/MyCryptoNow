@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "550317289901",
+    "project_id": "mycryptosnow-ada07",
+    "storage_bucket": "mycryptosnow-ada07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550317289901:android:e413618ee9daf861903124",
+        "android_client_info": {
+          "package_name": "com.example.mycryptonow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550317289901-cf8chcp9bian7ofdmjc5p6769aopiqis.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mycryptonow",
+            "certificate_hash": "c07d901c8fb948a4f982bc82a209e0913c66871b"
+          }
+        },
+        {
+          "client_id": "550317289901-lpofdh2qojrkcbprkkb6mcrvmoeri333.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9IiDBVUG4LA4w9NLeplhKkvMKskBKA-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550317289901-lpofdh2qojrkcbprkkb6mcrvmoeri333.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

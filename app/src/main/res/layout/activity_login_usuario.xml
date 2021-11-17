@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.loginusuario.LoginUsuarioActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_marginTop="@dimen/espaciado_grande"
+                android:layout_width="@dimen/imagen_mediana"
+                android:layout_height="@dimen/imagen_mediana"
+                android:layout_gravity="center"
+                android:src="@color/purple_200"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_nombre"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_amplio"
+                android:textSize="@dimen/titulo_principal"
+                android:fontFamily="@font/robotoslab_bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_slogan"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_pequenia"
+                android:textSize="@dimen/slogan"
+                android:fontFamily="@font/robotoslab_light"/>
+
+            <TextView
+                android:id="@+id/tvNombreUsuarioLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_amplio"
+                android:text="@string/user"
+                android:textSize="@dimen/grande_text"
+                android:fontFamily="@font/robotoslab_semibold"/>
+
+            <TextView
+                android:id="@+id/tvCorreoUsuarioLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:text="@string/user"
+                android:textSize="@dimen/normal_text"
+                android:fontFamily="@font/robotoslab_regular"/>
+
+            <EditText
+                android:id="@+id/etPasswordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaciado_amplio"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:layout_marginRight="@dimen/espaciado_pequenia"
+                android:hint="@string/ingresar_contrasenia"
+                android:textSize="@dimen/normal_text"
+                android:fontFamily="@font/robotoslab_bold"
+                android:inputType="textPassword"/>
+
+            <Button
+                android:id="@+id/btnBuscarCorreo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaciado_grande"
+                android:layout_gravity="center"
+                android:textSize="@dimen/grande_text"
+                android:text="@string/acceder"
+                android:fontFamily="@font/robotoslab_regular"/>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/espaciado_amplio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/espaciado_normal"
+                    android:text="@string/usuario_desconocido"
+                    android:fontFamily="@font/robotoslab_bold"
+                    android:textSize="@dimen/pequenia_text"/>
+
+                <TextView
+                    android:id="@+id/tvRegistroLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/espaciado_normal"
+                    android:text="@string/regresar"
+                    android:fontFamily="@font/robotoslab_semibold"
+                    android:textSize="@dimen/normal_text"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

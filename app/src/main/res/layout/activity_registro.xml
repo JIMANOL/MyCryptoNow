@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RegistroActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-175dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_amplio"
+                android:fontFamily="@font/robotoslab_bold"
+                android:text="@string/registro_titulo"
+                android:textSize="@dimen/titulo_principal" />
+
+
+            <TextView
+                android:id="@+id/tvCorreoUsuarioLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:layout_marginTop="@dimen/espaciado_amplio"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="@string/registro_solicitud_datos"
+                android:textSize="@dimen/normal_text" />
+
+            <EditText
+                android:id="@+id/etNombreRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginRight="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_bold"
+                android:hint="@string/ingresar_nombre"
+                android:inputType="text"
+                android:maxLength="20"
+                android:textSize="@dimen/normal_text" />
+
+            <EditText
+                android:id="@+id/etApellidoPaternoRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginRight="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_bold"
+                android:hint="@string/ingresar_apPaterno"
+                android:inputType="text"
+                android:maxLength="20"
+                android:textSize="@dimen/normal_text" />
+
+            <EditText
+                android:id="@+id/etApellidoMaternoRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginRight="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_bold"
+                android:hint="@string/ingresar_apMaterno"
+                android:inputType="text"
+                android:maxLength="20"
+                android:textSize="@dimen/normal_text" />
+
+            <EditText
+                android:id="@+id/etNombreUsuarioRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginRight="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_bold"
+                android:hint="@string/ingresar_usuario"
+                android:inputType="text"
+                android:maxLength="20"
+                android:textSize="@dimen/normal_text" />
+
+            <EditText
+                android:id="@+id/etCorreoRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginRight="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_bold"
+                android:hint="@string/ingresar_correo"
+                android:inputType="textEmailAddress"
+                android:maxLength="20"
+                android:textSize="@dimen/normal_text" />
+
+            <EditText
+                android:id="@+id/etContraseniaRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginRight="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_bold"
+                android:hint="@string/ingresar_contrasenia"
+                android:inputType="textPassword"
+                android:maxLength="10"
+                android:textSize="@dimen/normal_text" />
+
+            <EditText
+                android:id="@+id/etContraseniaConfirmadaRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginRight="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_bold"
+                android:hint="@string/ingresar_contrasenia_confirmar"
+                android:inputType="textPassword"
+                android:maxLength="10"
+                android:textSize="@dimen/normal_text" />
+
+            <Button
+                android:id="@+id/btnBuscarCorreo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="@string/registrar"
+                android:textSize="@dimen/grande_text" />
+
+            <TextView
+                android:id="@+id/tvRegresarRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginLeft="@dimen/espaciado_normal"
+                android:layout_marginBottom="@dimen/espaciado_normal"
+                android:fontFamily="@font/robotoslab_bold"
+                android:text="@string/regresar"
+                android:textSize="@dimen/normal_text" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
