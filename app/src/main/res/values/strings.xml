@@ -39,6 +39,14 @@
     <string name="btnagregar">Agregar</string>
     <string name="btnregresar">Regresar</string>
 
+    //Info Crypto
+    <string name="info_crypto">Info Crypto</string>
+    <string name="valor_actual">Valor actual</string>
+    <string name="tipo_crypto">Tipo de Crypto</string>
+    <string name="direccion">Dirección: </string>
+    <string name="cantidad">Cantidad: </string>
+    <string name="nombre_billetera">Nombre Billetera: </string>
+
 
 
 </resources>
