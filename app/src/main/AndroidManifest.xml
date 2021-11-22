@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCryptoNow">
-        <activity android:name=".agregar.Agregar"></activity>
+        <activity android:name=".ui.agregar.Agregar"></activity>
         <activity
             android:name=".ui.RegistroActivity"
             android:exported="true" />

@@ -1,4 +1,4 @@
-package com.example.mycryptonow.agregar;
+package com.example.mycryptonow.ui.agregar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
