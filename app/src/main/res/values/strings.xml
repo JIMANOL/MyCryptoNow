@@ -47,6 +47,9 @@
     <string name="cantidad">Cantidad: </string>
     <string name="nombre_billetera">Nombre Billetera: </string>
 
-
+    //Home Admin
+    <string name="oanel_control_API">Panel de control API</string>
+    <string name="creditos">Créditos</string>
+    <string name="actualizar_precios_cryptos">Actualizar Precio Cryptos</string>
 
 </resources>
