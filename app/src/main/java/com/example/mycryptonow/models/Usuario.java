@@ -1,6 +1,11 @@
 package com.example.mycryptonow.models;
 
-public class Usuario {
+
+import com.google.firebase.database.DataSnapshot;
+
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
 
     private String nombre;
     private String apellidoPaterno;
@@ -71,4 +76,12 @@ public class Usuario {
     }
 
 
+    public void fromSnapShot(DataSnapshot dataSnapshot) {
+        nombre = dataSnapshot.child("nombre").getValue().toString();
+        apellidoPaterno = dataSnapshot.child("apellidoPaterno").getValue().toString();
+        apellidoMaterno = dataSnapshot.child("apellidoMaterno").getValue().toString();
+        nombreUsuario =  dataSnapshot.child("nombreUsuario").getValue().toString();
+        correoUsuario = dataSnapshot.child("correoUsuario").getValue().toString();
+        tipoUsuario = dataSnapshot.child("tipoUsuario").getValue().toString();
+    }
 }

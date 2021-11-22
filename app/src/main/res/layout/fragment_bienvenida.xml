@@ -70,10 +70,18 @@
 
             </LinearLayout>
 
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/prueba"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginLeft="@dimen/espaciado_normal"
+                android:layout_marginRight="@dimen/espaciado_normal"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginTop="@dimen/espaciado_amplio"
                 android:layout_marginLeft="@dimen/espaciado_pequenia"
                 android:fontFamily="@font/robotoslab_regular"
                 android:text="@string/cantidad_criptos"

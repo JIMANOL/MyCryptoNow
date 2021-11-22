@@ -17,6 +17,7 @@
     <string name="cantidad_moneda">1,000,000</string>
     <string name="cantidad_criptos">Distribuido en :</string>
     <string name="nombre_crypto">Nombre crypto</string>
+    <string name="creacion_exitosa">Se creo correctamente</string>
 
     //otros
     <string name="user">Nombre del usuario</string>
@@ -38,7 +39,6 @@
     <string name="descripcion_agregar">Agrega la información de tu crypto</string>
     <string name="btnagregar">Agregar</string>
     <string name="btnregresar">Regresar</string>
-
 
 
 </resources>

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.RegistroActivity">
+    tools:context=".ui.registro.RegistroActivity">
+
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,6 +19,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvMensajeRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotoslab_bold"
+                android:text="@string/creacion_exitosa"
+                android:textSize="@dimen/normal_text"
+                android:gravity="center"
+                android:background="@color/green"
+                android:visibility="gone"/>
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,6 +66,18 @@
                 android:maxLength="20"
                 android:textSize="@dimen/normal_text" />
 
+            <TextView
+                android:id="@+id/tvMensaje1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Nombre no valido"
+                android:textSize="@dimen/pequenia_text"
+                android:textColor="@color/red"
+                android:visibility="gone"/>
+
             <EditText
                 android:id="@+id/etApellidoPaternoRegistro"
                 android:layout_width="match_parent"
@@ -64,6 +90,18 @@
                 android:inputType="text"
                 android:maxLength="20"
                 android:textSize="@dimen/normal_text" />
+
+            <TextView
+                android:id="@+id/tvMensaje2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Apellido no valido"
+                android:textSize="@dimen/pequenia_text"
+                android:textColor="@color/red"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/etApellidoMaternoRegistro"
@@ -78,6 +116,18 @@
                 android:maxLength="20"
                 android:textSize="@dimen/normal_text" />
 
+            <TextView
+                android:id="@+id/tvMensaje3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Apellido no valido"
+                android:textSize="@dimen/pequenia_text"
+                android:textColor="@color/red"
+                android:visibility="gone"/>
+
             <EditText
                 android:id="@+id/etNombreUsuarioRegistro"
                 android:layout_width="match_parent"
@@ -90,6 +140,18 @@
                 android:inputType="text"
                 android:maxLength="20"
                 android:textSize="@dimen/normal_text" />
+
+            <TextView
+                android:id="@+id/tvMensaje4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Nombre de usuario no valido"
+                android:textSize="@dimen/pequenia_text"
+                android:textColor="@color/red"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/etCorreoRegistro"
@@ -104,6 +166,18 @@
                 android:maxLength="20"
                 android:textSize="@dimen/normal_text" />
 
+            <TextView
+                android:id="@+id/tvMensaje5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Correo no valido. (ejemplo@empresa.com"
+                android:textSize="@dimen/pequenia_text"
+                android:textColor="@color/red"
+                android:visibility="gone"/>
+
             <EditText
                 android:id="@+id/etContraseniaRegistro"
                 android:layout_width="match_parent"
@@ -116,6 +190,18 @@
                 android:inputType="textPassword"
                 android:maxLength="10"
                 android:textSize="@dimen/normal_text" />
+
+            <TextView
+                android:id="@+id/tvMensaje6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Contraseñia no valida. (8 caracteres)"
+                android:textSize="@dimen/pequenia_text"
+                android:textColor="@color/red"
+                android:visibility="gone"/>
 
             <EditText
                 android:id="@+id/etContraseniaConfirmadaRegistro"
@@ -130,8 +216,20 @@
                 android:maxLength="10"
                 android:textSize="@dimen/normal_text" />
 
+            <TextView
+                android:id="@+id/tvMensaje7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Contraseñas no coinciden"
+                android:textSize="@dimen/pequenia_text"
+                android:textColor="@color/red"
+                android:visibility="gone"/>
+
             <Button
-                android:id="@+id/btnBuscarCorreo"
+                android:id="@+id/btnRegistrarUsuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -154,5 +252,27 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacionEnviar"
+        android:layout_width="@dimen/imagen_mediana"
+        android:layout_height="@dimen/imagen_mediana"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_rawRes="@raw/mandar_info"
+        android:visibility="gone"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacionxCargar"
+        android:layout_width="@dimen/imagen_grande"
+        android:layout_height="@dimen/imagen_grande"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_rawRes="@raw/cargar"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

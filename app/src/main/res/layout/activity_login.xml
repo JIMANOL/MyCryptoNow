@@ -66,6 +66,20 @@
                 android:fontFamily="@font/robotoslab_bold"
                 android:inputType="textEmailAddress"/>
 
+            <TextView
+                android:id="@+id/tvMensajeLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_pequenia"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:layout_marginRight="@dimen/espaciado_pequenia"
+                android:text="No se encontro el correo, verifique su informacion o cree una cuenta nueva"
+                android:textSize="@dimen/pequenia_text"
+                android:textColor="@color/red"
+                android:fontFamily="@font/robotoslab_regular"
+                android:visibility="gone"/>
+
             <Button
                 android:id="@+id/btnBuscarCorreo"
                 android:layout_width="wrap_content"
