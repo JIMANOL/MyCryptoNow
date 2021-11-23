@@ -55,4 +55,10 @@
     //Lista de Accesos
     <string name="lista_accesos">Lista de Accesos</string>
 
+    //Chats
+    <string name="conversacion">Conversación</string>
+    <string name="ingrese_mensaje">Ingrese su mensaje</string>
+    <string name="cerrar_reporte">CERRAR REPORTE</string>
+
+    //
 </resources>
