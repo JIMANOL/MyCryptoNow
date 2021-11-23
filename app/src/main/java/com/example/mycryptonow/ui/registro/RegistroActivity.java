@@ -34,7 +34,6 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     private Button btnCrearUsuario;
     private RegistroViewModel modelo;
     private LottieAnimationView enviar;
-    private LottieAnimationView cargar;
     private EditText etNombre;
     private EditText etApPaterno;
     private EditText etApMaterno;
@@ -68,7 +67,6 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         tvMensaje7 = findViewById(R.id.tvMensaje7);
         btnCrearUsuario = findViewById(R.id.btnRegistrarUsuario);
         enviar = findViewById(R.id.animacionEnviar);
-        cargar = findViewById(R.id.animacionxCargar);
         etNombre = findViewById(R.id.etNombreRegistro);
         etApPaterno = findViewById(R.id.etApellidoPaternoRegistro);
         etApMaterno = findViewById(R.id.etApellidoMaternoRegistro);
@@ -87,6 +85,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 if(o != null){
                     enviar.setVisibility(View.VISIBLE);
                     tvMensaje.setVisibility(View.VISIBLE);
+                    tvMensaje.requestFocus();
                     enviar.playAnimation();
                     enviar.addAnimatorListener(new AnimatorListenerAdapter() {
                         @Override

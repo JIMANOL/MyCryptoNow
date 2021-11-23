@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import com.example.mycryptonow.interfaces.Respuesta;
 import com.example.mycryptonow.models.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -127,4 +129,28 @@ public class Autenticacion  {
         firebaseAuth.signOut();
         respuesta.respuesta(new Object());
     }
+
+    /**
+     * Este metodo es empleado para verificar las credenciales del usuario y otorgarles acceso a la aplicacion
+     * o denegarles el accceso, se retornar aun objeto si fue exito y en caso contrario se regresara un nulo
+     * @param correo
+     * @param contrasenia
+     * @param activity
+     * @param respuesta
+     */
+
+    public void ingresarConCorreoPassword(String correo,String contrasenia, Activity activity ,Respuesta respuesta){
+
+        firebaseAuth.signInWithEmailAndPassword(correo,contrasenia).addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    respuesta.respuesta(new Object());
+                }else{
+                    respuesta.respuesta(null);
+                }
+            }
+        });
+    }
+
 }

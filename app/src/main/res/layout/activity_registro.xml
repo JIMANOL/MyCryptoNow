@@ -255,24 +255,13 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animacionEnviar"
-        android:layout_width="@dimen/imagen_mediana"
-        android:layout_height="@dimen/imagen_mediana"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:lottie_rawRes="@raw/mandar_info"
-        android:visibility="gone"/>
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animacionxCargar"
         android:layout_width="@dimen/imagen_grande"
         android:layout_height="@dimen/imagen_grande"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:lottie_rawRes="@raw/cargar"
+        app:lottie_rawRes="@raw/mandar_info"
         android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

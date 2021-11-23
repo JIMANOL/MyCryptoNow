@@ -11,6 +11,7 @@ import android.os.Bundle;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.ui.login.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashScreenActivity extends AppCompatActivity {
     //Variables globales
