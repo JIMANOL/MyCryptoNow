@@ -23,7 +23,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/espaciado_amplio"
                 android:fontFamily="@font/robotoslab_bold"
-                android:text="@string/oanel_control_API"
+                android:text="@string/panel_control_API"
                 android:textSize="@dimen/titulo_principal" />
 
             <TextView
