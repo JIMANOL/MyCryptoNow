@@ -70,6 +70,27 @@
     <string name="nav_header_desc">Descripcion de Mycriptonow</string>
     <string name="TituloNav">Mycriptonow</string>
     <string name="SloganNav">Slogan mycriptonow</string>
+    
+    //Info Crypto
+    <string name="info_crypto">Info Crypto</string>
+    <string name="valor_actual">Valor actual</string>
+    <string name="tipo_crypto">Tipo de Crypto</string>
+    <string name="direccion">Dirección: </string>
+    <string name="cantidad">Cantidad: </string>
+    <string name="nombre_billetera">Nombre Billetera: </string>
 
+    //Home Admin
+    <string name="panel_control_API">Panel de control API</string>
+    <string name="creditos">Créditos</string>
+    <string name="actualizar_precios_cryptos">Actualizar Precio Cryptos</string>
 
+    //Lista de Accesos
+    <string name="lista_accesos">Lista de Accesos</string>
+
+    //Chats
+    <string name="conversacion">Conversación</string>
+    <string name="ingrese_mensaje">Ingrese su mensaje</string>
+    <string name="cerrar_reporte">CERRAR REPORTE</string>
+
+    //
 </resources>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.infocrypto.InfoCrypto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-175dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_amplio"
+                android:fontFamily="@font/robotoslab_bold"
+                android:text="@string/info_crypto"
+                android:textSize="@dimen/titulo_principal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="@string/valor_actual"
+                android:textSize="@dimen/grande_text" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:fontFamily="@font/robotoslab_bold"
+                    android:text="@string/signo_moneda"
+                    android:textSize="@dimen/grande_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:layout_marginLeft="@dimen/espaciado_pequenia"
+                    android:fontFamily="@font/robotoslab_regular"
+                    android:text="@string/cantidad_moneda"
+                    android:textSize="@dimen/grande_text" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivLogoSplash"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_width="@dimen/imagen_enorme"
+                android:layout_height="@dimen/imagen_enorme"
+                android:layout_gravity="center"
+                android:src="@color/purple_200"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="@string/tipo_crypto"
+                android:textSize="@dimen/normal_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginLeft="@dimen/espaciado_amplio"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="@string/direccion"
+                android:textSize="@dimen/normal_text" />
+
+            <TextView
+                android:id="@+id/TV_Direccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginLeft="@dimen/espaciado_amplio"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="----------------------------------"
+                android:textSize="@dimen/normal_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaciado_pequenia"
+                android:layout_marginLeft="@dimen/espaciado_amplio"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="@string/cantidad"
+                android:textSize="@dimen/normal_text" />
+            <TextView
+                android:id="@+id/TV_Cantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginLeft="@dimen/espaciado_amplio"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="----------------------------------"
+                android:textSize="@dimen/normal_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaciado_pequenia"
+                android:layout_marginLeft="@dimen/espaciado_amplio"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="@string/nombre_billetera"
+                android:textSize="@dimen/normal_text" />
+
+            <TextView
+                android:id="@+id/TV_NombreBilletera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_marginLeft="@dimen/espaciado_amplio"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="----------------------------------"
+                android:textSize="@dimen/normal_text" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <ImageButton
+                    android:id="@+id/boton_editar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:src="@android:drawable/ic_menu_edit" />
+
+                <ImageButton
+                    android:id="@+id/boton_eliminar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:src="@android:drawable/ic_menu_delete" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/boton_regresar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="@string/regresar"
+            />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

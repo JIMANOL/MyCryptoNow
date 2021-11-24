@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".listaaccesos.listaAccesosFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="25dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lista_accesos"
+                android:gravity="center"
+                android:textSize="@dimen/grande_text"/>
+
+            <ListView
+                android:id="@+id/lvListarAccesos"
+                android:layout_width="match_parent"
+                android:layout_height="650dp"
+                android:smoothScrollbar="true" />
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+</FrameLayout>
