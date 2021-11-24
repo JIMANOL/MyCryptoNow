@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.annotation.NonNull;
 
 import com.example.mycryptonow.interfaces.Respuesta;
+import com.example.mycryptonow.models.Datum;
 import com.example.mycryptonow.models.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,6 +20,7 @@ import java.util.concurrent.Executor;
 public class Realtime {
     //Constantes
     private final String COLECCION_USUARIOS_NOMBRE="usuarios";
+    private final String COLECCION_CRYPTOS_INFO_NOMBRE="informacion_cryptos";
 
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
@@ -36,6 +38,25 @@ public class Realtime {
      */
     public void agregarUsuario(Usuario usuario, Activity activity, Respuesta respuesta){
         databaseReference.child(COLECCION_USUARIOS_NOMBRE).push().setValue(usuario).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    respuesta.respuesta(new Object());
+                }else{
+                    respuesta.respuesta(null);
+                }
+            }
+        });
+    }
+
+    /**
+     * Agregar informacion en realtime acerca de la crypto, devuleve un objeto si se creo correctamente, devuelve un nulo
+     * si no se pudo realizar la operacion.
+     * @param crypto
+     * @param respuesta
+     */
+    public void agregarCryptoInformacion(Datum crypto, Activity activity, Respuesta respuesta){
+        databaseReference.child(COLECCION_CRYPTOS_INFO_NOMBRE).push().setValue(crypto).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){

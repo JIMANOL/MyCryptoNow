@@ -23,6 +23,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.example.mycryptonow.R;
+import com.firebase.ui.auth.data.model.User;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -35,15 +36,21 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BienvenidaFragment extends Fragment {
 
+    //Variables globales
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser user;
     private BienvenidaViewModel mViewModel;
-    PieChart pie;
-    List<PieEntry> list;
+    private PieChart pie;
+    private List<PieEntry> list;
+    private TextView tvNombreUsuario;
 
     public static BienvenidaFragment newInstance() {
         return new BienvenidaFragment();
@@ -53,6 +60,11 @@ public class BienvenidaFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_bienvenida, container, false);
+
+        //Inicializar
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+        iniciarComponentes(root);
 
         pie = root.findViewById(R.id.prueba);
         list=new ArrayList<>();
@@ -116,6 +128,14 @@ public class BienvenidaFragment extends Fragment {
 //        line.animateXY(2000,2000);// Animación mixta de dos ejes XY
 
         return root;
+    }
+
+    private void iniciarComponentes( View root) {
+        //Inicializacion
+        tvNombreUsuario = root.findViewById(R.id.tvNombreUsuarioHome);
+
+        //Agregar valores
+        tvNombreUsuario.setText(user.getDisplayName());
     }
 
     @Override
