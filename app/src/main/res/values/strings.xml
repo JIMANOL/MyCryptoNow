@@ -33,7 +33,7 @@
     <string name="ingresar_apPaterno">Ingrese su Apellido Paterno</string>
     <string name="ingresar_apMaterno">Ingrese su Apellido Materno</string>
     <string name="ingresar_usuario">Ingrese su Nombre de Usuario</string>
- 
+
 
     //Agregar
     <string name="agregar">Agregar crypto</string>
@@ -41,6 +41,35 @@
     <string name="descripcion_agregar">Agrega la información de tu crypto</string>
     <string name="btnagregar">Agregar</string>
     <string name="btnregresar">Regresar</string>
+
+    //Editar
+    <string name="editar">Editar crypto</string>
+    <string name="descripcion_editar">Edita la información de tu crypto</string>
+    <string name="btneditar">Editar</string>
+    <string name="edqr">Editar Codigo QR</string>
+
+    //Listar
+    <string name="listar">Listar crypto</string>
+
+    //Creditos
+    <string name="descripcion_creditos">Creditos</string>
+    <string name="creditos">Acerca de...</string>
+    <string name="universidad">Instituto Tecnologico de Toluca</string>
+    <string name="especialidad">Ingenieria en sistemas computacionales</string>
+    <string name="alumno">Alumno: José Enrique Maldonado Verazas, Maximiliano Ovando Ramirez, Jesus Imanol Castano Gil.</string>
+    <string name="materia">Desarrollo móvil</string>
+    <string name="profesor">Profesora: Rocío Elizabeth Pulido Alba</string>
+    <string name="clase">Lunes,Martes,Jueves de 5 a 7 PM</string>
+    <string name="version">1.0 2021</string>
+
+    //Menu
+    <string name="menu_agregar">Agregar</string>
+    <string name="menu_editar">Editar</string>
+
+    //Navigation
+    <string name="nav_header_desc">Descripcion de Mycriptonow</string>
+    <string name="TituloNav">Mycriptonow</string>
+    <string name="SloganNav">Slogan mycriptonow</string>
 
 
 </resources>
