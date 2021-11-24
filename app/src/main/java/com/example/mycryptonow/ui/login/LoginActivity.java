@@ -2,7 +2,6 @@ package com.example.mycryptonow.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
@@ -14,12 +13,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mycryptonow.MainActivity;
+import com.example.mycryptonow.ui.home.MainActivity;
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.models.Usuario;
 import com.example.mycryptonow.ui.loginusuario.LoginUsuarioActivity;
 import com.example.mycryptonow.ui.registro.RegistroActivity;
-import com.example.mycryptonow.ui.registro.RegistroViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

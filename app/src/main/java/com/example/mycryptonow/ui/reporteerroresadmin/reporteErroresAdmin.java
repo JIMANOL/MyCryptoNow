@@ -1,4 +1,4 @@
-package com.example.mycryptonow.reporteerrores;
+package com.example.mycryptonow.ui.reporteerroresadmin;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -14,24 +14,24 @@ import android.view.ViewGroup;
 
 import com.example.mycryptonow.R;
 
-public class reporteErrores extends Fragment {
+public class reporteErroresAdmin extends Fragment {
 
-    private ReporteErroresViewModel mViewModel;
+    private ReporteErroresAdminViewModel mViewModel;
 
-    public static reporteErrores newInstance() {
-        return new reporteErrores();
+    public static reporteErroresAdmin newInstance() {
+        return new reporteErroresAdmin();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.reporte_errores_fragment, container, false);
+        return inflater.inflate(R.layout.reporte_errores_admin_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(ReporteErroresViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(ReporteErroresAdminViewModel.class);
         // TODO: Use the ViewModel
     }
 

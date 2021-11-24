@@ -1,4 +1,4 @@
-package com.example.mycryptonow.homeadmin;
+package com.example.mycryptonow.ui.homeadmin;
 
 import androidx.lifecycle.ViewModel;
 

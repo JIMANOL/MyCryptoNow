@@ -1,20 +1,13 @@
-package com.example.mycryptonow;
+package com.example.mycryptonow.ui.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
+import com.example.mycryptonow.R;
 import com.example.mycryptonow.interfaces.APIInterface;
-import com.example.mycryptonow.models.APIClient;
-import com.example.mycryptonow.models.CryptoCoinMarket;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private APIInterface apiInterface;

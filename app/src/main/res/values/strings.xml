@@ -53,7 +53,7 @@
 
     //Creditos
     <string name="descripcion_creditos">Creditos</string>
-    <string name="creditos">Acerca de...</string>
+    <string name="acerca">Acerca de...</string>
     <string name="universidad">Instituto Tecnologico de Toluca</string>
     <string name="especialidad">Ingenieria en sistemas computacionales</string>
     <string name="alumno">Alumno: José Enrique Maldonado Verazas, Maximiliano Ovando Ramirez, Jesus Imanol Castano Gil.</string>

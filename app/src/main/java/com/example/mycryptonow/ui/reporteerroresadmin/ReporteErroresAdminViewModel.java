@@ -1,4 +1,4 @@
-package com.example.mycryptonow.reporteerroresadmin;
+package com.example.mycryptonow.ui.reporteerroresadmin;
 
 import androidx.lifecycle.ViewModel;
 

@@ -1,4 +1,4 @@
-package com.example.mycryptonow.listaaccesos;
+package com.example.mycryptonow.ui.homeadmin;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -14,24 +14,24 @@ import android.view.ViewGroup;
 
 import com.example.mycryptonow.R;
 
-public class listaAccesosFragment extends Fragment {
+public class homeAdmin extends Fragment {
 
-    private ListaAccesosViewModel mViewModel;
+    private HomeAdminViewModel mViewModel;
 
-    public static listaAccesosFragment newInstance() {
-        return new listaAccesosFragment();
+    public static homeAdmin newInstance() {
+        return new homeAdmin();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.lista_accesos_fragment, container, false);
+        return inflater.inflate(R.layout.home_admin_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(ListaAccesosViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(HomeAdminViewModel.class);
         // TODO: Use the ViewModel
     }
 

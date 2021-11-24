@@ -1,4 +1,4 @@
-package com.example.mycryptonow;
+package com.example.mycryptonow.ui.home;
 
 import android.app.Activity;
 
@@ -9,8 +9,6 @@ import com.example.mycryptonow.db.Realtime;
 import com.example.mycryptonow.interfaces.Respuesta;
 import com.example.mycryptonow.models.CryptoCoinMarket;
 import com.example.mycryptonow.models.Datum;
-
-import java.util.ArrayList;
 
 public class MainViewModel extends ViewModel {
     private MutableLiveData<CryptoCoinMarket> informacion = new MutableLiveData<>();

@@ -1,4 +1,4 @@
-package com.example.mycryptonow.listaaccesos;
+package com.example.mycryptonow.ui.listaaccesos;
 
 import androidx.lifecycle.ViewModel;
 
