@@ -1,5 +1,8 @@
 package com.example.mycryptonow.models;
 
+import android.util.Log;
+
+import com.google.firebase.database.DataSnapshot;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -78,6 +81,16 @@ public class Datum implements Serializable
 
     public void setQuote(Quote quote) {
         this.quote = quote;
+    }
+
+    public void fromSnapshot(DataSnapshot dataSnapshot1) {
+        id=Integer.parseInt(dataSnapshot1.child("id").getValue().toString());
+        name=dataSnapshot1.child("name").getValue().toString();
+        symbol=dataSnapshot1.child("symbol").getValue().toString();
+        cmcRank=Integer.parseInt(dataSnapshot1.child("cmcRank").getValue().toString());
+        lastUpdated=dataSnapshot1.child("lastUpdated").getValue().toString();
+        quote= new Quote();
+        quote.fromSnapShot(dataSnapshot1.child("quote"));
     }
 }
 

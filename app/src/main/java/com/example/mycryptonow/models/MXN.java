@@ -1,5 +1,6 @@
 package com.example.mycryptonow.models;
 
+import com.google.firebase.database.DataSnapshot;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -122,5 +123,18 @@ public class MXN implements Serializable
 
     public void setMarketCapitalizacion(Double marketCapitalizacion) {
         this.marketCapitalizacion = marketCapitalizacion;
+    }
+
+    public void fromSnapshot(DataSnapshot mxn) {
+        price = Double.parseDouble(mxn.child("price").getValue().toString());
+        volume24h = Double.parseDouble(mxn.child("volume24h").getValue().toString());
+        volumeChange24h = Double.parseDouble(mxn.child("volumeChange24h").getValue().toString());
+        percentChange1h = Double.parseDouble(mxn.child("percentChange1h").getValue().toString());
+        percentChange24h = Double.parseDouble(mxn.child("percentChange24h").getValue().toString());
+        percentChange7d = Double.parseDouble(mxn.child("percentChange7d").getValue().toString());
+        percentChange30d = Double.parseDouble(mxn.child("percentChange30d").getValue().toString());
+        percentChange60d = Double.parseDouble(mxn.child("percentChange60d").getValue().toString());
+        percentChange90d = Double.parseDouble(mxn.child("percentChange90d").getValue().toString());
+        marketCapitalizacion = Double.parseDouble(mxn.child("marketCapitalizacion").getValue().toString());
     }
 }

@@ -50,6 +50,7 @@
 
     //Listar
     <string name="listar">Listar crypto</string>
+    <string name="lista_cryptos">Lista cryptos</string>
 
     //Creditos
     <string name="descripcion_creditos">Creditos</string>

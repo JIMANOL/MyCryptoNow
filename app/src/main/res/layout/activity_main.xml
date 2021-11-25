@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.MainActivity">
 
-    <fragment android:name="com.example.mycryptonow.ui.bienvenidausuario.BienvenidaFragment"
+    <fragment android:name="com.example.mycryptonow.ui.listacryptos.ListaCryptosFragment"
         android:id="@+id/headlines_fragment"
         android:layout_weight="1"
         android:layout_width="match_parent"

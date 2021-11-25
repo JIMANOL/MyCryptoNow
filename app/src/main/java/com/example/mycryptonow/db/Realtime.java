@@ -56,7 +56,7 @@ public class Realtime {
      * @param respuesta
      */
     public void agregarCryptoInformacion(Datum crypto, Activity activity, Respuesta respuesta){
-        databaseReference.child(COLECCION_CRYPTOS_INFO_NOMBRE).push().setValue(crypto).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
+        databaseReference.child(COLECCION_CRYPTOS_INFO_NOMBRE).child(crypto.getName()).push().setValue(crypto).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
@@ -67,6 +67,32 @@ public class Realtime {
             }
         });
     }
+
+    public void obtenerListaCryptos(Activity activity,Respuesta respuesta){
+        databaseReference.child(COLECCION_CRYPTOS_INFO_NOMBRE).get().addOnCompleteListener(activity, new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                ArrayList<ArrayList<Datum>> listaCryptos = new ArrayList<>();
+                ArrayList<Datum> listaInfoCrypto = new ArrayList<>();
+                if (task.isSuccessful()){
+
+                    for (DataSnapshot dataSnapshot : task.getResult().getChildren()){
+                        for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren() ){
+                            Datum dato = new Datum();
+                            dato.fromSnapshot(dataSnapshot1);
+                            listaInfoCrypto.add(dato);
+                        }
+                        listaCryptos.add(listaInfoCrypto);
+                        listaInfoCrypto = new ArrayList<>();
+                    }
+
+                    respuesta.respuesta(listaCryptos);
+                }
+            }
+        });
+    }
+
+
 
     /**
      * Busca si el correo existe y regresa al usuario correspondiente, en caso contrario regresa un nulo
