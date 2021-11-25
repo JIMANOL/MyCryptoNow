@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.listacryptos.ListaCryptosFragment">
 
     <LinearLayout
@@ -29,5 +30,14 @@
             android:layout_marginTop="@dimen/espaciado_normal"/>
 
     </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacionCargarLista"
+        android:layout_width="@dimen/imagen_enorme"
+        android:layout_height="@dimen/imagen_enorme"
+        android:layout_gravity="center"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/cargar"
+        android:visibility="gone"/>
 
 </FrameLayout>

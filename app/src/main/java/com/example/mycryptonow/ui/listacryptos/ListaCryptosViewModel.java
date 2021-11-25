@@ -1,10 +1,12 @@
 package com.example.mycryptonow.ui.listacryptos;
 
 import android.app.Activity;
+import android.view.View;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.mycryptonow.db.Realtime;
 import com.example.mycryptonow.interfaces.Respuesta;
 import com.example.mycryptonow.models.Datum;
@@ -19,7 +21,9 @@ public class ListaCryptosViewModel extends ViewModel {
         return info;
     }
 
-    public void buscarCryptos(Activity activity){
+    public void buscarCryptos(Activity activity, LottieAnimationView cargarAnimacion){
+        cargarAnimacion.setVisibility(View.VISIBLE);
+        cargarAnimacion.playAnimation();
         database.obtenerListaCryptos(activity, new Respuesta() {
             @Override
             public void respuesta(Object respuesta) {
