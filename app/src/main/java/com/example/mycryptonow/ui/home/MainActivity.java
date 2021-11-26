@@ -6,15 +6,21 @@ import androidx.lifecycle.ViewModelProvider;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.db.Realtime;
 import com.example.mycryptonow.interfaces.APIInterface;
 import com.example.mycryptonow.interfaces.Respuesta;
 import com.example.mycryptonow.models.APIClient;
+import com.example.mycryptonow.models.CryptoCoinMarket;
 import com.example.mycryptonow.models.Datum;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private APIInterface apiInterface;
@@ -48,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
-        /*Thread hilo = new Thread(new Runnable() {
+        Thread hilo = new Thread(new Runnable() {
             @Override
             public void run() {
                 do{
@@ -72,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                     try {
-                        Thread.sleep(10000);
+                        Thread.sleep(1800000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -81,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        hilo.start();*/
+        //hilo.start();
 
     }
 }

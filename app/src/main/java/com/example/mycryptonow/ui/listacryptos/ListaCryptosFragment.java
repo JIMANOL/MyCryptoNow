@@ -17,10 +17,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.models.Datum;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,6 +37,9 @@ public class ListaCryptosFragment extends Fragment {
     private RecyclerView recyclerView;
     private ListaCryptosAdapter adapter = new ListaCryptosAdapter();
     private LottieAnimationView cargarAnimacion;
+    private LinearLayout lyCorreoConfirmado;
+    private LinearLayout lyNoCorreoConfirmado;
+    private Button btnVerificar;
 
     public static ListaCryptosFragment newInstance() {
         return new ListaCryptosFragment();
@@ -46,6 +52,23 @@ public class ListaCryptosFragment extends Fragment {
 
         recyclerView =  root.findViewById(R.id.rvListaCryptos);
         cargarAnimacion = root.findViewById(R.id.animacionCargarLista);
+        lyCorreoConfirmado = root.findViewById(R.id.lyInformacionVerificado);
+        lyNoCorreoConfirmado= root.findViewById(R.id.lyInformacionNoVerificado);
+        btnVerificar = root.findViewById(R.id.btnVerificarListaCryptos);
+
+        btnVerificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewModel.verificarCorreo(getActivity());
+            }
+        });
+
+        Log.d("hola",String.valueOf(FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()));
+        if(FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()){
+            lyCorreoConfirmado.setVisibility(View.VISIBLE);
+        }else{
+            lyNoCorreoConfirmado.setVisibility(View.VISIBLE);
+        }
         initRecyclerView();
 
         return root;

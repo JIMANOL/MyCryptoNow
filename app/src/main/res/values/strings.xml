@@ -51,6 +51,9 @@
     //Listar
     <string name="listar">Listar crypto</string>
     <string name="lista_cryptos">Lista cryptos</string>
+    <string name="solicitud_verificacion_correo">Hola estimado usuario.
+    Para disfrutar de este contenido es necesario que confirme su dirección de correo.
+    Le agradecemos su preferencia y siga disfrutando de la aplicación.</string>
 
     //Creditos
     <string name="descripcion_creditos">Creditos</string>

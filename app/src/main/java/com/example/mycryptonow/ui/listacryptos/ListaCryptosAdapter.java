@@ -10,6 +10,7 @@ import com.example.mycryptonow.R;
 import com.example.mycryptonow.models.Datum;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class ListaCryptosAdapter extends RecyclerView.Adapter<ListaCryptosViewHolder> {
     private ArrayList<ArrayList<Datum>> datosLista = new ArrayList<>();
@@ -22,8 +23,16 @@ public class ListaCryptosAdapter extends RecyclerView.Adapter<ListaCryptosViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ListaCryptosViewHolder holder, int position) {
-        int posicionDato =datosLista.get(position).size()-1;
-        holder.setIfo(datosLista.get(position).get(posicionDato));
+        datosLista.sort(new Comparator<ArrayList<Datum>>() {
+            @Override
+            public int compare(ArrayList<Datum> data, ArrayList<Datum> t1) {
+                return data.get(data.size()-1).getCmcRank().compareTo(t1.get(t1.size()-1).getCmcRank());
+            }
+        });
+
+        ArrayList<Datum> lista = datosLista.get(position);
+
+        holder.setIfo(lista);
     }
 
     @Override

@@ -27,7 +27,8 @@ public class SplashScreenActivity extends AppCompatActivity {
         billetera = findViewById(R.id.ivLogoSplash);
         activity= this;
 
-        billetera.setRepeatCount(1);
+        //FirebaseAuth.getInstance().signOut();
+
         billetera.addAnimatorListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
