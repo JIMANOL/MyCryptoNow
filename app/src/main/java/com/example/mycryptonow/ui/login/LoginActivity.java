@@ -13,9 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mycryptonow.ui.home.MainActivity;
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.models.Usuario;
+import com.example.mycryptonow.ui.home.MainActivity;
 import com.example.mycryptonow.ui.loginusuario.LoginUsuarioActivity;
 import com.example.mycryptonow.ui.registro.RegistroActivity;
 import com.google.firebase.auth.FirebaseAuth;

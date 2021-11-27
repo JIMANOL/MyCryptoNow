@@ -74,7 +74,7 @@
     <string name="nav_header_desc">Descripcion de Mycriptonow</string>
     <string name="TituloNav">Mycriptonow</string>
     <string name="SloganNav">Slogan mycriptonow</string>
-    
+
     //Info Crypto
     <string name="info_crypto">Info Crypto</string>
     <string name="valor_actual">Valor actual</string>
@@ -95,6 +95,21 @@
     <string name="conversacion">Conversación</string>
     <string name="ingrese_mensaje">Ingrese su mensaje</string>
     <string name="cerrar_reporte">CERRAR REPORTE</string>
+    <string name="title_activity_main">MainActivity</string>
+
+
+    //Titulos navigation drawer
+    <string name="menu_home">Home</string>
+    <string name="menu_lista_cryptos">Lista Cryptos</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_logout">Logout</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_salir">Salir</string>
 
     //
 </resources>

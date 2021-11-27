@@ -16,10 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.mycryptonow.ui.home.MainActivity;
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.interfaces.Respuesta;
 import com.example.mycryptonow.models.Usuario;
+import com.example.mycryptonow.ui.home.MainActivity;
 
 public class LoginUsuarioActivity extends AppCompatActivity implements View.OnClickListener {
     //Variables globales

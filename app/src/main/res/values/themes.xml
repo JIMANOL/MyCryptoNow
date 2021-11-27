@@ -17,8 +17,18 @@
     <style name="boton_especial" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/dorado</item>
     </style>
+
     <style name="sin_fondo">
         <item name="android:background">@android:color/transparent</item>
     </style>
+
+    <style name="Theme.MyCryptoNow.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyCryptoNow.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyCryptoNow.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

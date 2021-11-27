@@ -1,20 +1,34 @@
 package com.example.mycryptonow.ui.home;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.Menu;
 import android.widget.Toast;
 
 import com.example.mycryptonow.R;
+import com.example.mycryptonow.databinding.ActivityMainBinding;
 import com.example.mycryptonow.db.Realtime;
 import com.example.mycryptonow.interfaces.APIInterface;
 import com.example.mycryptonow.interfaces.Respuesta;
 import com.example.mycryptonow.models.APIClient;
 import com.example.mycryptonow.models.CryptoCoinMarket;
 import com.example.mycryptonow.models.Datum;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
+
 
 import java.util.ArrayList;
 
@@ -22,20 +36,47 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
+
     private APIInterface apiInterface;
     private MainViewModel modelo;
     private Activity activity;
+    private AppBarConfiguration mAppBarConfiguration;
+    private ActivityMainBinding binding;
 
     private int creditos=3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        setSupportActionBar(binding.appBarMain.toolbar);
+        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        DrawerLayout drawer = binding.drawerLayout;
+        NavigationView navigationView = binding.navView;
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_lista_cryptos, R.id.nav_slideshow)
+                .setOpenableLayout(drawer)
+                .build();
+
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
 
         //Inicializacion
-        getSupportActionBar().hide();
+
+        //getSupportActionBar().hide();
 
         modelo = new ViewModelProvider(this).get(MainViewModel.class);
         activity = this;
@@ -72,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<CryptoCoinMarket> call, Throwable t) {
-                            Toast.makeText(MainActivity.this, "onFailure", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, "onFailure", Toast.LENGTH_SHORT).show();
                             Log.d("XXXX", t.getLocalizedMessage());
                             call.cancel();
                         }
@@ -87,7 +128,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //hilo.start();
-
+        hilo.start();
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                Toast.makeText(this,"Hasta luego",Toast.LENGTH_LONG).show();
+                FirebaseAuth firebaseAuth=firebaseAuth= FirebaseAuth.getInstance();
+                firebaseAuth.signOut();
+                finishAffinity();
+                return true;
+            case R.id.action_salir:
+                Toast.makeText(this,"Hasta luego",Toast.LENGTH_LONG).show();
+                finishAffinity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
+    }
+
+
 }

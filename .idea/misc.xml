@@ -11,12 +11,32 @@
         <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/activity_login_usuario.xml" value="0.2359375" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/activity_menu.xml" value="0.536" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/activity_registro.xml" value="0.264" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/app_bar_main.xml" value="0.25" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/content_main.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/content_main2.xml" value="0.25" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/fragment_bienvenida.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/fragment_creditos.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/fragment_editar.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/fragment_gallery.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/fragment_lista_cryptos.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/fragment_listar.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/fragment_slideshow.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/home_admin_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/info_crypto_fragment.xml" value="0.25" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/item_crypto_info.xml" value="0.4" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/lista_accesos_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/msjajeno.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/msjpropio.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/nav_header_main.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/reporte_errores_admin_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/layout/reporte_errores_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/menu/main.xml" value="0.25" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/MyCryptoNow/app/src/main/res/menu/menu.xml" value="0.25" />
       </map>
     </option>
   </component>
