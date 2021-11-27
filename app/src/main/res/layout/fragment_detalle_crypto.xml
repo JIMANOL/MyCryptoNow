@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detallecrypto.DetalleCryptoFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-175dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:fontFamily="@font/robotoslab_bold"
+                android:text="@string/detalle_crypto"
+                android:textSize="@dimen/titulo_principal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:fontFamily="@font/robotoslab_semibold"
+                android:text="@string/nombre_crypto"
+                android:textSize="@dimen/grande_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="@string/cantidad_mxn"
+                android:textSize="@dimen/grande_text" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:fontFamily="@font/robotoslab_bold"
+                    android:text="@string/signo_moneda"
+                    android:textSize="@dimen/grande_text"
+                    android:textColor="@color/green"/>
+
+                <TextView
+                    android:id="@+id/tvPrecioCryptoDetalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:layout_marginLeft="@dimen/espaciado_pequenia"
+                    android:fontFamily="@font/robotoslab_regular"
+                    android:text="@string/cantidad_moneda"
+                    android:textSize="@dimen/grande_text"
+                    android:textColor="@color/green"/>
+
+            </LinearLayout>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lcGraficaDetalle"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"/>
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

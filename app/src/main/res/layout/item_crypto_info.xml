@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/espaciado_normal"
     android:layout_marginBottom="@dimen/espaciado_minima"
-    android:theme="@style/fondo_card_view">
+    android:theme="@style/fondo_card_view"
+    android:id="@+id/cvCart">
 
     <LinearLayout
         android:layout_width="match_parent"

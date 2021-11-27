@@ -15,7 +15,11 @@
         android:id="@+id/nav_lista_cryptos"
         android:name="com.example.mycryptonow.ui.listacryptos.ListaCryptosFragment"
         android:label="@string/menu_lista_cryptos"
-        tools:layout="@layout/fragment_lista_cryptos" />
+        tools:layout="@layout/fragment_lista_cryptos" >
+        <action
+            android:id="@+id/action_nav_lista_cryptos_to_detalleCryptoFragment"
+            app:destination="@id/nav_detalle_crypto" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_lista_mis_cryptos"
@@ -30,6 +34,24 @@
     <fragment
         android:id="@+id/nav_agregar_crypto"
         android:name="com.example.mycryptonow.ui.agregar.AgregarFragment"
-        android:label="fragment_agregar"
+        android:label="@string/menu_dialog_agregar"
         tools:layout="@layout/fragment_agregar" />
+
+    <fragment
+        android:id="@+id/nav_lista_accesos"
+        android:name="com.example.mycryptonow.ui.listaaccesos.listaAccesosFragment"
+        android:label="@string/lista_accesos"
+        tools:layout="@layout/lista_accesos_fragment" />
+
+    <fragment
+        android:id="@+id/nav_creditos"
+        android:name="com.example.mycryptonow.ui.creditos.CreditosFragment"
+        android:label="@string/menu_creditos"
+        tools:layout="@layout/fragment_creditos" />
+
+    <fragment
+        android:id="@+id/nav_detalle_crypto"
+        android:name="com.example.mycryptonow.ui.detallecrypto.DetalleCryptoFragment"
+        android:label="@string/detalle_crypto"
+        tools:layout="@layout/fragment_detalle_crypto" />
 </navigation>

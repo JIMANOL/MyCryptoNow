@@ -39,11 +39,7 @@ public class LoginViewModel extends ViewModel {
         database.agregarIngreso(ingresos, activity, new Respuesta() {
             @Override
             public void respuesta(Object respuesta) {
-                if (respuesta != null){
-                    Intent intent = new Intent(activity, MainActivity.class);
-                    activity.startActivity(intent);
-                    activity.finish();
-                }else{
+                if (respuesta == null){
                     Toast.makeText(activity,"No se pudo crear el ingreso",Toast.LENGTH_LONG).show();
                 }
             }

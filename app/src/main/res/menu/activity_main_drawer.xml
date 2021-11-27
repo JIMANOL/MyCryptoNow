@@ -16,5 +16,16 @@
             android:id="@+id/nav_lista_mis_cryptos"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_lista_mis_cryptos" />
+        <item
+            android:id="@+id/nav_lista_accesos"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_lista_accesos" />
+    </group>
+
+    <group>
+        <item
+            android:id="@+id/nav_creditos"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_creditos" />
     </group>
 </menu>

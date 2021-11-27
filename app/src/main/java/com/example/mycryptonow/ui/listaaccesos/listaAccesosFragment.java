@@ -16,12 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.ui.listaaccesos.Acceso_MB;
+import com.example.mycryptonow.models.Ingresos;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,7 +44,7 @@ public class listaAccesosFragment extends Fragment implements View.OnClickListen
    // private ListarViewModel listarViewModel;
     private ListaAccesosViewModel listarViewModel;
 
-    static ArrayList<Acceso_MB> Accesos = new ArrayList<Acceso_MB>();
+    static ArrayList<Ingresos> Accesos = new ArrayList<Ingresos>();
     static ArrayList<String> ListaAccesos = new ArrayList<String>();
     //public firebase FireBase = new firebase();
 
@@ -85,8 +85,8 @@ public class listaAccesosFragment extends Fragment implements View.OnClickListen
                 ListaAccesos.clear();
                 Accesos.clear();
                 for(DataSnapshot objSnapshot: snapshot.getChildren()){
-                    Acceso_MB acceso = objSnapshot.getValue(Acceso_MB.class);
-                    ListaAccesos.add("(" + acceso.getID() + ") ");
+                    Ingresos acceso = objSnapshot.getValue(Ingresos.class);
+                    ListaAccesos.add("(" + acceso.getId() + ") ");
                     Accesos.add(acceso);
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, ListaAccesos);
                     list.setAdapter(adapter);
@@ -112,11 +112,10 @@ public class listaAccesosFragment extends Fragment implements View.OnClickListen
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 View dialogView=LayoutInflater.from(getContext()).inflate(R.layout.cuadro_dialogo,null);
                 String datos =
-                        "ID: "+Accesos.get(i).getID()+"\r\n";
+                        "ID: "+Accesos.get(i).getId()+"\r\n";
                 datos+="FECHA: "+Accesos.get(i).getFecha()+"\r\n";
-                datos+="HORA: "+Accesos.get(i).getHora()+"\r\n";
                 datos+="DISPOSITIVO: "+Accesos.get(i).getDispositivo()+"\r\n";
-                datos+="UBICACIÓN: "+Accesos.get(i).getUbicacion()+"\r\n";
+                datos+="UBICACIÓN: "+Accesos.get(i).getDireccion()+"\r\n";
                 ((TextView)dialogView.findViewById(R.id.tvpInfoDetallada)).setText(datos);
                 AlertDialog.Builder dialogo=new  AlertDialog.Builder(getContext());
                 dialogo.setTitle("Datos del Acceso");
