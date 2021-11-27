@@ -92,5 +92,6 @@
     <string name="ingrese_mensaje">Ingrese su mensaje</string>
     <string name="cerrar_reporte">CERRAR REPORTE</string>
 
-    //
+    //Cuadro de Dialogo
+    <string name="detalles">DETALLES</string>
 </resources>
