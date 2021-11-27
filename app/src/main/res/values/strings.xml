@@ -20,7 +20,6 @@
     <string name="signo_moneda">$</string>
     <string name="cantidad_moneda">1,000,000</string>
     <string name="cantidad_criptos">Distribuido en :</string>
-    <string name="nombre_crypto">Nombre crypto</string>
     <string name="creacion_exitosa">Se creo correctamente</string>
 
     //otros
