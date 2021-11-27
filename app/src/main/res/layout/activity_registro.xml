@@ -163,7 +163,7 @@
                 android:fontFamily="@font/robotoslab_bold"
                 android:hint="@string/ingresar_correo"
                 android:inputType="textEmailAddress"
-                android:maxLength="20"
+                android:maxLength="40"
                 android:textSize="@dimen/normal_text" />
 
             <TextView

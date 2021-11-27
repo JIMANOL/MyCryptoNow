@@ -6,18 +6,30 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_agregar"
-        android:name="com.example.mycryptonow.ui.agregar.AgregarFragment"
-        android:label="@string/menu_agregar"
-        tools:layout="@layout/fragment_agregar" />
+        android:id="@+id/nav_home"
+        android:name="com.example.mycryptonow.ui.bienvenidausuario.BienvenidaFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_bienvenida" />
 
     <fragment
-        android:id="@+id/nav_editar"
-        android:name="com.example.mycryptonow.ui.editar.EditarFragment"
-        android:label="@string/menu_editar"
-        tools:layout="@layout/fragment_editar" />
+        android:id="@+id/nav_lista_cryptos"
+        android:name="com.example.mycryptonow.ui.listacryptos.ListaCryptosFragment"
+        android:label="@string/menu_lista_cryptos"
+        tools:layout="@layout/fragment_lista_cryptos" />
 
+    <fragment
+        android:id="@+id/nav_lista_mis_cryptos"
+        android:name="com.example.mycryptonow.ui.listamiscryptos.ListaMisCryptosFragment"
+        android:label="@string/menu_lista_mis_cryptos"
+        tools:layout="@layout/fragment_lista_mis_cryptos" >
+        <action
+            android:id="@+id/action_nav_lista_mis_cryptos_to_agregarFragment"
+            app:destination="@id/nav_agregar_crypto" />
+    </fragment>
 
-
-
+    <fragment
+        android:id="@+id/nav_agregar_crypto"
+        android:name="com.example.mycryptonow.ui.agregar.AgregarFragment"
+        android:label="fragment_agregar"
+        tools:layout="@layout/fragment_agregar" />
 </navigation>

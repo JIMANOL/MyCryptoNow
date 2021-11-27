@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.listacryptos.ListaCryptosFragment">
+
+    <LinearLayout
+        android:id="@+id/lyInformacionVerificado"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/espaciado_normal"
+        android:layout_marginRight="@dimen/espaciado_normal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/titulo_principal"
+            android:layout_marginTop="@dimen/espaciado_amplio"
+            android:text="@string/lista_cryptos"
+            android:layout_gravity="center"
+            android:fontFamily="@font/robotoslab_bold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListaCryptos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/espaciado_normal"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/lyInformacionNoVerificado"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/espaciado_normal"
+        android:layout_marginRight="@dimen/espaciado_normal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/grande_text"
+            android:text="@string/solicitud_verificacion_correo"
+            android:layout_marginTop="@dimen/espaciado_enorme"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:padding="@dimen/espaciado_normal"
+            android:theme="@style/fondo_card_view"
+            android:fontFamily="@font/robotoslab_bold"/>
+
+        <Button
+            android:id="@+id/btnVerificarListaCryptos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/espaciado_normal"
+            android:text="Verifique su correo"
+            android:theme="@style/boton_especial"
+            android:textSize="@dimen/espaciado_normal"
+            android:fontFamily="@font/robotoslab_bold"/>
+
+    </LinearLayout>
+
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacionCargarLista"
+        android:layout_width="@dimen/imagen_enorme"
+        android:layout_height="@dimen/imagen_enorme"
+        android:layout_gravity="center"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/cargar"
+        android:visibility="gone"/>
+
+</FrameLayout>

@@ -18,10 +18,10 @@
 
             <ImageView
                 android:layout_marginTop="@dimen/espaciado_amplio"
-                android:layout_width="@dimen/imagen_mediana"
-                android:layout_height="@dimen/imagen_mediana"
+                android:layout_width="@dimen/imagen_grande"
+                android:layout_height="@dimen/imagen_grande"
                 android:layout_gravity="center"
-                android:src="@color/purple_200"/>
+                android:src="@drawable/logo_cryptos"/>
 
             <TextView
                 android:layout_width="wrap_content"

@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.example.mycryptonow.interfaces.Respuesta;
 import com.example.mycryptonow.models.Datum;
+import com.example.mycryptonow.models.Ingresos;
 import com.example.mycryptonow.models.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,6 +22,7 @@ public class Realtime {
     //Constantes
     private final String COLECCION_USUARIOS_NOMBRE="usuarios";
     private final String COLECCION_CRYPTOS_INFO_NOMBRE="informacion_cryptos";
+    private final String COLECCION_INGRESOS_NOMBRE="informacion_ingresos";
 
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
@@ -48,15 +50,14 @@ public class Realtime {
             }
         });
     }
-
     /**
-     * Agregar informacion en realtime acerca de la crypto, devuleve un objeto si se creo correctamente, devuelve un nulo
+     * Crea un usuario en firebase realtime, devuleve un objeto si se creo correctamente, devuelve un nulo
      * si no se pudo realizar la operacion.
-     * @param crypto
+     * @param ingresos
      * @param respuesta
      */
-    public void agregarCryptoInformacion(Datum crypto, Activity activity, Respuesta respuesta){
-        databaseReference.child(COLECCION_CRYPTOS_INFO_NOMBRE).push().setValue(crypto).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
+    public void agregarIngreso(Ingresos ingresos, Activity activity, Respuesta respuesta){
+        databaseReference.child(COLECCION_INGRESOS_NOMBRE).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).push().setValue(ingresos).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
@@ -67,6 +68,51 @@ public class Realtime {
             }
         });
     }
+
+    /**
+     * Agregar informacion en realtime acerca de la crypto, devuleve un objeto si se creo correctamente, devuelve un nulo
+     * si no se pudo realizar la operacion.
+     * @param crypto
+     * @param respuesta
+     */
+    public void agregarCryptoInformacion(Datum crypto, Activity activity, Respuesta respuesta){
+        databaseReference.child(COLECCION_CRYPTOS_INFO_NOMBRE).child(crypto.getName()).push().setValue(crypto).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    respuesta.respuesta(new Object());
+                }else{
+                    respuesta.respuesta(null);
+                }
+            }
+        });
+    }
+
+    public void obtenerListaCryptos(Activity activity,Respuesta respuesta){
+        databaseReference.child(COLECCION_CRYPTOS_INFO_NOMBRE).get().addOnCompleteListener(activity, new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                ArrayList<ArrayList<Datum>> listaCryptos = new ArrayList<>();
+                ArrayList<Datum> listaInfoCrypto = new ArrayList<>();
+                if (task.isSuccessful()){
+
+                    for (DataSnapshot dataSnapshot : task.getResult().getChildren()){
+                        for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren() ){
+                            Datum dato = new Datum();
+                            dato.fromSnapshot(dataSnapshot1);
+                            listaInfoCrypto.add(dato);
+                        }
+                        listaCryptos.add(listaInfoCrypto);
+                        listaInfoCrypto = new ArrayList<>();
+                    }
+
+                    respuesta.respuesta(listaCryptos);
+                }
+            }
+        });
+    }
+
+
 
     /**
      * Busca si el correo existe y regresa al usuario correspondiente, en caso contrario regresa un nulo

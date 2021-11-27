@@ -4,22 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.NavitgationActivity">
+    tools:context=".ui.home.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.MyCryptoNow">
+        android:theme="@style/Theme.MyCryptoNow.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
-            app:popupTheme="@style/Theme.MyCryptoNow" />
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.MyCryptoNow.PopupOverlay"
+            app:titleTextColor="@color/white"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

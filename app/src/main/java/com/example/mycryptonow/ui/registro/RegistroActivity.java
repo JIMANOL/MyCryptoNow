@@ -147,49 +147,49 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         String contraseniaConfirmada;
         boolean ban=true;
 
-        nombre = etNombre.getText().toString();
+        nombre = etNombre.getText().toString().trim();
         if(!nombre.matches("[A-z]+")){
             ban=false;
             tvMensaje1.setVisibility(View.VISIBLE);
         }else{
             tvMensaje1.setVisibility(View.GONE);
         }
-        apellidoPaterno = etApPaterno.getText().toString();
+        apellidoPaterno = etApPaterno.getText().toString().trim();
         if(!apellidoPaterno.matches("[A-z]+")){
             ban=false;
             tvMensaje2.setVisibility(View.VISIBLE);
         }else{
             tvMensaje2.setVisibility(View.GONE);
         }
-        apellidoMaterno = etApMaterno.getText().toString();
+        apellidoMaterno = etApMaterno.getText().toString().trim();
         if(!apellidoMaterno.matches("[A-z]+")){
             ban=false;
             tvMensaje3.setVisibility(View.VISIBLE);
         }else{
             tvMensaje3.setVisibility(View.GONE);
         }
-        nombreUsuario = etNombreUsuario.getText().toString();
+        nombreUsuario = etNombreUsuario.getText().toString().trim();
         if(!nombreUsuario.matches("([A-z]*[0-9]*)*")){
             ban=false;
             tvMensaje4.setVisibility(View.VISIBLE);
         }else{
             tvMensaje4.setVisibility(View.GONE);
         }
-        correo = etCorreo.getText().toString();
+        correo = etCorreo.getText().toString().trim();
         if(!correo.matches("([A-z]+.*)+@([A-z]*.+)+[A-z]+")){
             ban=false;
             tvMensaje5.setVisibility(View.VISIBLE);
         }else{
             tvMensaje5.setVisibility(View.GONE);
         }
-        contrasenia = etContrasenia.getText().toString();
+        contrasenia = etContrasenia.getText().toString().trim();
         if(!(contrasenia.length() == 8)){
             ban=false;
             tvMensaje6.setVisibility(View.VISIBLE);
         }else{
             tvMensaje6.setVisibility(View.GONE);
         }
-        contraseniaConfirmada = etConfirmacionContrasenia.getText().toString();
+        contraseniaConfirmada = etConfirmacionContrasenia.getText().toString().trim();
         if(!contrasenia.equals(contraseniaConfirmada)){
             ban=false;
             tvMensaje7.setVisibility(View.VISIBLE);
