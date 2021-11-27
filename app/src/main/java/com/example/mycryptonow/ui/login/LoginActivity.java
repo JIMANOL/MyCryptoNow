@@ -1,12 +1,21 @@
 package com.example.mycryptonow.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,12 +23,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mycryptonow.R;
+import com.example.mycryptonow.models.Ingresos;
 import com.example.mycryptonow.models.Usuario;
 import com.example.mycryptonow.ui.home.MainActivity;
 import com.example.mycryptonow.ui.loginusuario.LoginUsuarioActivity;
 import com.example.mycryptonow.ui.registro.RegistroActivity;
+import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.io.IOException;
+import java.net.NetworkInterface;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     //Variables globales
@@ -30,6 +49,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private LoginViewModel modelo;
     private Activity activity;
     private EditText etCorreo;
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/YYYY hh:mm:ss");
+    private FusedLocationProviderClient fusedLocationClient;
+    private LocationManager locManager;
+    private Location loc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +104,32 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onStart();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         if(currentUser != null){
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            String fecha = simpleDateFormat.format(new Date());
+            String dispositivo = getMacAddress();
+            String direccion="";
+
+            if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+
+            }
+
+            locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            try {
+                Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+                List<Address> list = geocoder.getFromLocation(
+                        loc.getLatitude(), loc.getLongitude(), 1);
+                if (!list.isEmpty()) {
+                    Address DirCalle = list.get(0);
+                    direccion=DirCalle.getAddressLine(0);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Ingresos ingresos = new Ingresos(fecha,dispositivo,direccion);
+
+            modelo.agregarIngresos(ingresos,activity);
         }
     }
 
@@ -112,5 +159,32 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mostrarMensaje("No ingreso ningun dato");
         }
 
+    }
+
+    public static String getMacAddress() {
+        try {
+            List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
+            for (NetworkInterface nif : all) {
+                if (!nif.getName().equalsIgnoreCase("wlan0")) continue;
+
+                byte[] macBytes = nif.getHardwareAddress();
+                if (macBytes == null) {
+                    return "";
+                }
+
+                StringBuilder res1 = new StringBuilder();
+                for (byte b : macBytes) {
+                    res1.append(Integer.toHexString(b & 0xFF) + ":");
+                }
+
+                if (res1.length() > 0) {
+                    res1.deleteCharAt(res1.length() - 1);
+                }
+                return res1.toString();
+            }
+        } catch (Exception ex) {
+            Log.e("Error", ex.getMessage());
+        }
+        return "";
     }
 }

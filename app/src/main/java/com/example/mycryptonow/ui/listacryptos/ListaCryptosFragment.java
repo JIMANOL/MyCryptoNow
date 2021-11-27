@@ -91,7 +91,9 @@ public class ListaCryptosFragment extends Fragment {
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                mViewModel.buscarCryptos(getActivity(), cargarAnimacion);
+                if (getActivity() != null){
+                    mViewModel.buscarCryptos(getActivity(), cargarAnimacion);
+                }
 
             }
 

@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
 
+    private String id;
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
@@ -18,6 +19,7 @@ public class Usuario implements Serializable {
 
     }
 
+
     public Usuario(String nombre, String apellidoPaterno, String apellidoMaterno, String nombreUsuario, String correoUsuario, String tipoUsuario) {
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
@@ -25,6 +27,14 @@ public class Usuario implements Serializable {
         this.nombreUsuario = nombreUsuario;
         this.correoUsuario = correoUsuario;
         this.tipoUsuario = tipoUsuario;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -77,6 +87,7 @@ public class Usuario implements Serializable {
 
 
     public void fromSnapShot(DataSnapshot dataSnapshot) {
+        id = dataSnapshot.getKey();
         nombre = dataSnapshot.child("nombre").getValue().toString();
         apellidoPaterno = dataSnapshot.child("apellidoPaterno").getValue().toString();
         apellidoMaterno = dataSnapshot.child("apellidoMaterno").getValue().toString();

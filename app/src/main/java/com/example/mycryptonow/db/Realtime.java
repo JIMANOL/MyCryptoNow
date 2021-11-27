@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.example.mycryptonow.interfaces.Respuesta;
 import com.example.mycryptonow.models.Datum;
+import com.example.mycryptonow.models.Ingresos;
 import com.example.mycryptonow.models.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,6 +22,7 @@ public class Realtime {
     //Constantes
     private final String COLECCION_USUARIOS_NOMBRE="usuarios";
     private final String COLECCION_CRYPTOS_INFO_NOMBRE="informacion_cryptos";
+    private final String COLECCION_INGRESOS_NOMBRE="informacion_ingresos";
 
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
@@ -38,6 +40,24 @@ public class Realtime {
      */
     public void agregarUsuario(Usuario usuario, Activity activity, Respuesta respuesta){
         databaseReference.child(COLECCION_USUARIOS_NOMBRE).push().setValue(usuario).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    respuesta.respuesta(new Object());
+                }else{
+                    respuesta.respuesta(null);
+                }
+            }
+        });
+    }
+    /**
+     * Crea un usuario en firebase realtime, devuleve un objeto si se creo correctamente, devuelve un nulo
+     * si no se pudo realizar la operacion.
+     * @param ingresos
+     * @param respuesta
+     */
+    public void agregarIngreso(Ingresos ingresos, Activity activity, Respuesta respuesta){
+        databaseReference.child(COLECCION_INGRESOS_NOMBRE).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).push().setValue(ingresos).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){

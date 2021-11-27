@@ -101,7 +101,7 @@
     //Titulos navigation drawer
     <string name="menu_home">Home</string>
     <string name="menu_lista_cryptos">Lista Cryptos</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_lista_mis_cryptos">Lista mis cryptos</string>
     <string name="menu_logout">Logout</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
