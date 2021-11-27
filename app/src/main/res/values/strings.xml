@@ -116,5 +116,6 @@
     <string name="action_logout">Logout</string>
     <string name="action_salir">Salir</string>
 
-    //
+    //Cuadro de Dialogo
+    <string name="detalles">DETALLES</string>
 </resources>
