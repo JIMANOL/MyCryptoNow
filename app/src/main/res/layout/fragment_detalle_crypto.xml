@@ -72,49 +72,12 @@
 
             </LinearLayout>
 
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/prueba"
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lcGraficaDetalle"
                 android:layout_marginTop="@dimen/espaciado_normal"
-                android:layout_marginLeft="@dimen/espaciado_normal"
-                android:layout_marginRight="@dimen/espaciado_normal"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"/>
+                android:layout_height="400dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/espaciado_amplio"
-                android:layout_marginLeft="@dimen/espaciado_pequenia"
-                android:fontFamily="@font/robotoslab_regular"
-                android:text="@string/cantidad_criptos"
-                android:textSize="@dimen/normal_text" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/espaciado_normal"
-                android:layout_marginLeft="@dimen/espaciado_amplio"
-                android:fontFamily="@font/robotoslab_regular"
-                android:text="@string/nombre_crypto"
-                android:textSize="@dimen/normal_text" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/espaciado_pequenia"
-                android:layout_marginLeft="@dimen/espaciado_amplio"
-                android:fontFamily="@font/robotoslab_regular"
-                android:text="@string/nombre_crypto"
-                android:textSize="@dimen/normal_text" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/espaciado_pequenia"
-                android:layout_marginLeft="@dimen/espaciado_amplio"
-                android:fontFamily="@font/robotoslab_regular"
-                android:text="@string/nombre_crypto"
-                android:textSize="@dimen/normal_text" />
 
 
 

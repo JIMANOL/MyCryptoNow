@@ -3,10 +3,14 @@ package com.example.mycryptonow.ui.listacryptos;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycryptonow.R;
@@ -27,6 +31,7 @@ public class ListaCryptosViewHolder extends RecyclerView.ViewHolder {
     private TextView tvCap;
     private TextView tvVariacion1;
     private TextView tvVariacion24;
+    private CardView cvCart;
 
     public ListaCryptosViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -38,6 +43,7 @@ public class ListaCryptosViewHolder extends RecyclerView.ViewHolder {
         tvCap = itemView.findViewById(R.id.tvCapMarketListaCryptos);
         tvVariacion1 = itemView.findViewById(R.id.tvVariacion1hListaCryptos);
         tvVariacion24 = itemView.findViewById(R.id.tvVariacion24hListaCryptos);
+        cvCart = itemView.findViewById(R.id.cvCart);
     }
 
     public void  setIfo(ArrayList<Datum> cryptos){
@@ -67,5 +73,14 @@ public class ListaCryptosViewHolder extends RecyclerView.ViewHolder {
         }else{
             tvVariacion24.setTextColor(Color.RED);
         }
+
+        cvCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("historial", cryptos);
+                Navigation.findNavController(view).navigate(R.id.nav_detalle_crypto,bundle);
+            }
+        });
     }
 }
