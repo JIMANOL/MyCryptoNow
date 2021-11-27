@@ -27,6 +27,7 @@
                 android:textSize="@dimen/titulo_principal" />
 
             <TextView
+                android:id="@+id/tvNombreTituloDetalleCrypto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -50,21 +51,12 @@
                 android:orientation="horizontal"
                 android:layout_gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/espaciado_normal"
-                    android:fontFamily="@font/robotoslab_bold"
-                    android:text="@string/signo_moneda"
-                    android:textSize="@dimen/grande_text"
-                    android:textColor="@color/green"/>
 
                 <TextView
                     android:id="@+id/tvPrecioCryptoDetalle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/espaciado_normal"
-                    android:layout_marginLeft="@dimen/espaciado_pequenia"
                     android:fontFamily="@font/robotoslab_regular"
                     android:text="@string/cantidad_moneda"
                     android:textSize="@dimen/grande_text"
@@ -78,6 +70,237 @@
                 android:layout_width="match_parent"
                 android:layout_height="400dp"/>
 
+            <Button
+                android:id="@+id/btnGuardarGraficaDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guardar grafica"
+                android:fontFamily="@font/robotoslab_bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/espaciado_normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Informacion"
+                    android:textSize="@dimen/grande_text"
+                    android:fontFamily="@font/robotoslab_bold"
+                    android:theme="@style/sin_fondo"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:background="@color/dorado"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="ID:"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_bold"/>
+
+                    <TextView
+                        android:id="@+id/tvIDDetalleCrypto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/espaciado_pequenia"
+                        android:text="0000"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_regular"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/espaciado_normal"
+                        android:text="Rank (cmc):"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_bold"/>
+
+                    <TextView
+                        android:id="@+id/tvRankcmcDetalleCrypto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/espaciado_pequenia"
+                        android:text="0000"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_regular"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:orientation="horizontal"
+                    android:theme="@style/sin_fondo">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Nombre:"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_bold"/>
+
+                    <TextView
+                        android:id="@+id/tvNombreDetalleCrypto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/espaciado_pequenia"
+                        android:text="Nombre"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_regular"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:orientation="horizontal"
+                    android:theme="@style/sin_fondo">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Simbolo:"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_bold"/>
+
+                    <TextView
+                        android:id="@+id/tvSimboloDetalleCrypto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/espaciado_pequenia"
+                        android:text="ASFC"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_regular"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:orientation="horizontal"
+                    android:theme="@style/sin_fondo">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Precio (MXN):"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_bold"/>
+
+                    <TextView
+                        android:id="@+id/tvPrecioDetalleCrypto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/green"
+                        android:layout_marginLeft="@dimen/espaciado_pequenia"
+                        android:text="$1,000,000,000"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_regular"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:text="Capitalización (MXN):"
+                    android:theme="@style/sin_fondo"
+                    android:textSize="@dimen/normal_text"
+                    android:fontFamily="@font/robotoslab_bold"/>
+
+                <TextView
+                    android:id="@+id/tvCapMarketDetalleCrypto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:layout_gravity="center"
+                    android:textColor="@color/green"
+                    android:layout_marginLeft="@dimen/espaciado_pequenia"
+                    android:text="$1,000,000,000"
+                    android:theme="@style/sin_fondo"
+                    android:textSize="@dimen/normal_text"
+                    android:fontFamily="@font/robotoslab_regular"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:orientation="horizontal"
+                    android:theme="@style/sin_fondo">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Variacion (1h):"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_bold"/>
+
+                    <TextView
+                        android:id="@+id/tvVariacion1hDetalleCrypto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/green"
+                        android:layout_marginLeft="@dimen/espaciado_pequenia"
+                        android:text="100.00 %"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_regular"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espaciado_normal"
+                    android:orientation="horizontal"
+                    android:theme="@style/sin_fondo">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Variacion (24h):"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_bold"/>
+
+                    <TextView
+                        android:id="@+id/tvVariacion24hDetalleCrypto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/green"
+                        android:layout_marginLeft="@dimen/espaciado_pequenia"
+                        android:text="100.00 %"
+                        android:textSize="@dimen/normal_text"
+                        android:fontFamily="@font/robotoslab_regular"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
 
 
 

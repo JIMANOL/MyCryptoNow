@@ -10,11 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.TestLooperManager;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.models.Datum;
@@ -33,14 +37,33 @@ import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DetalleCryptoFragment extends Fragment {
 
     private DetalleCryptoViewModel mViewModel;
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd_MM_YYYY_hh_mm_ss");
+    private DecimalFormat decimalFormat = new DecimalFormat("#00.00");
+    private NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
     private LineChart lcGrafica;
     private ArrayList<Datum> cryptos;
+    private Datum crypto;
+    private Button btnGuardarGrafica;
+    private TextView tvNombreTitulo;
+    private TextView tvPrecioTitulo;
+    private TextView tvID;
+    private TextView tvRankcmc;
+    private TextView tvNombre;
+    private TextView tvSimbolo;
+    private TextView tvPrecio;
+    private TextView tvCapitalizacion;
+    private TextView tvVariacion1h;
+    private TextView tvVariacion24h;
 
     public static DetalleCryptoFragment newInstance() {
         return new DetalleCryptoFragment();
@@ -52,6 +75,9 @@ public class DetalleCryptoFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_detalle_crypto, container, false);
 
         cryptos = (ArrayList<Datum>) getArguments().getSerializable("historial");
+        crypto = cryptos.get(cryptos.size()-1);
+
+
 
         iniciarComponente(root);
         initData();
@@ -62,6 +88,58 @@ public class DetalleCryptoFragment extends Fragment {
     private void iniciarComponente(View root) {
 
         lcGrafica = (LineChart) root.findViewById(R.id.lcGraficaDetalle);
+        btnGuardarGrafica = root.findViewById(R.id.btnGuardarGraficaDetalle);
+        tvNombreTitulo = root.findViewById(R.id.tvNombreTituloDetalleCrypto);
+        tvPrecioTitulo = root.findViewById(R.id.tvPrecioCryptoDetalle);
+        tvID = root.findViewById(R.id.tvIDDetalleCrypto);
+        tvRankcmc = root.findViewById(R.id.tvRankcmcDetalleCrypto);
+        tvNombre = root.findViewById(R.id.tvNombreDetalleCrypto);
+        tvSimbolo = root.findViewById(R.id.tvSimboloDetalleCrypto);
+        tvPrecio = root.findViewById(R.id.tvPrecioDetalleCrypto);
+        tvCapitalizacion = root.findViewById(R.id.tvCapMarketDetalleCrypto);
+        tvVariacion1h = root.findViewById(R.id.tvVariacion1hDetalleCrypto);
+        tvVariacion24h = root.findViewById(R.id.tvVariacion24hDetalleCrypto);
+
+        tvNombreTitulo.setText(crypto.getName());
+        tvPrecioTitulo.setText(numberFormat.format(crypto.getQuote().getMxn().getPrice()));
+        tvID.setText(String.valueOf(crypto.getId()));
+        tvRankcmc.setText(String.valueOf(crypto.getCmcRank()));
+        tvNombre.setText(crypto.getName());
+        tvSimbolo.setText(crypto.getSymbol());
+        tvPrecio.setText(numberFormat.format(crypto.getQuote().getMxn().getPrice()));
+        tvCapitalizacion.setText(numberFormat.format(crypto.getQuote().getMxn().getMarketCapitalizacion()));
+        tvVariacion1h.setText(decimalFormat.format(crypto.getQuote().getMxn().getPercentChange1h()) +" %");
+        tvVariacion24h.setText(decimalFormat.format(crypto.getQuote().getMxn().getPercentChange24h())+" %");
+
+        if (crypto.getQuote().getMxn().getPercentChange1h() == 0){
+            tvVariacion1h.setTextColor(Color.WHITE);
+        }else if(crypto.getQuote().getMxn().getPercentChange1h() > 0){
+            tvVariacion1h.setTextColor(Color.GREEN);
+        }else{
+            tvVariacion1h.setTextColor(Color.RED);
+        }
+
+        if (crypto.getQuote().getMxn().getPercentChange24h() == 0){
+            tvVariacion24h.setTextColor(Color.WHITE);
+        }else if(crypto.getQuote().getMxn().getPercentChange24h() > 0){
+            tvVariacion24h.setTextColor(Color.GREEN);
+        }else{
+            tvVariacion24h.setTextColor(Color.RED);
+        }
+
+        btnGuardarGrafica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String filename = "GraficaLineal"+crypto.getName()+simpleDateFormat.format(new Date())+".jpg";
+
+                if(lcGrafica.saveToGallery(filename)){
+                    Toast.makeText(getContext(),"Se guardo la imagen correctamente",Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getContext(),"No se pudo guardar la imagen",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
 
 
     }

@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/titulo_principal"
-            android:layout_marginTop="@dimen/espaciado_amplio"
+            android:layout_marginTop="@dimen/espaciado_normal"
             android:text="@string/lista_cryptos"
             android:layout_gravity="center"
             android:fontFamily="@font/robotoslab_bold"/>
@@ -46,9 +46,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/grande_text"
+            android:textSize="@dimen/normal_text"
             android:text="@string/solicitud_verificacion_correo"
-            android:layout_marginTop="@dimen/espaciado_enorme"
+            android:layout_marginTop="@dimen/espaciado_amplio"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -67,6 +67,15 @@
             android:theme="@style/boton_especial"
             android:textSize="@dimen/espaciado_normal"
             android:fontFamily="@font/robotoslab_bold"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/laVerificarListaCryptos"
+            android:layout_width="@dimen/imagen_enorme"
+            android:layout_height="@dimen/imagen_enorme"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/espaciado_pequenia"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/espera_crypto"/>
 
     </LinearLayout>
 

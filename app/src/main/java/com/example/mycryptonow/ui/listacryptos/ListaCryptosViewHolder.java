@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class ListaCryptosViewHolder extends RecyclerView.ViewHolder {
     private DecimalFormat decimalFormat = new DecimalFormat("#00.00");
-    NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
+    private NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
     private TextView tvID;
     private TextView tvRank;
     private TextView tvNombre;

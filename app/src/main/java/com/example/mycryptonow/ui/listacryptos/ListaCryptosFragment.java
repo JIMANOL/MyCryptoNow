@@ -37,6 +37,7 @@ public class ListaCryptosFragment extends Fragment {
     private RecyclerView recyclerView;
     private ListaCryptosAdapter adapter = new ListaCryptosAdapter();
     private LottieAnimationView cargarAnimacion;
+    private LottieAnimationView verificarAnimacion;
     private LinearLayout lyCorreoConfirmado;
     private LinearLayout lyNoCorreoConfirmado;
     private Button btnVerificar;
@@ -52,6 +53,7 @@ public class ListaCryptosFragment extends Fragment {
 
         recyclerView =  root.findViewById(R.id.rvListaCryptos);
         cargarAnimacion = root.findViewById(R.id.animacionCargarLista);
+        verificarAnimacion = root.findViewById(R.id.laVerificarListaCryptos);
         lyCorreoConfirmado = root.findViewById(R.id.lyInformacionVerificado);
         lyNoCorreoConfirmado= root.findViewById(R.id.lyInformacionNoVerificado);
         btnVerificar = root.findViewById(R.id.btnVerificarListaCryptos);
@@ -63,11 +65,11 @@ public class ListaCryptosFragment extends Fragment {
             }
         });
 
-        Log.d("hola",String.valueOf(FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()));
         if(FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()){
             lyCorreoConfirmado.setVisibility(View.VISIBLE);
         }else{
             lyNoCorreoConfirmado.setVisibility(View.VISIBLE);
+            verificarAnimacion.playAnimation();
         }
         initRecyclerView();
 

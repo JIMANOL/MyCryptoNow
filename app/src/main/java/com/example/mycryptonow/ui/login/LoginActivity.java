@@ -49,10 +49,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private LoginViewModel modelo;
     private Activity activity;
     private EditText etCorreo;
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/YYYY hh:mm:ss");
-    private FusedLocationProviderClient fusedLocationClient;
-    private LocationManager locManager;
-    private Location loc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,34 +100,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onStart();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         if(currentUser != null){
-            String fecha = simpleDateFormat.format(new Date());
-            String dispositivo = getMacAddress();
-            String direccion="";
-
-            if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-
-            }
-
-            locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if(loc != null){
-                try {
-                    Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-                    List<Address> list = geocoder.getFromLocation(loc.getLatitude(), loc.getLongitude(), 1);
-                    if (!list.isEmpty()) {
-                        Address DirCalle = list.get(0);
-                        direccion=DirCalle.getAddressLine(0);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            Ingresos ingresos = new Ingresos(fecha,dispositivo,direccion);
-
-            modelo.agregarIngresos(ingresos,activity);
-
             Intent intent = new Intent(activity, MainActivity.class);
             activity.startActivity(intent);
             activity.finish();

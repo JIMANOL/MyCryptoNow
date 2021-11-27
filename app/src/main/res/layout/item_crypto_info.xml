@@ -169,7 +169,7 @@
             android:layout_gravity="start"
             android:layout_marginTop="@dimen/espaciado_normal"
             android:textColor="@color/white"
-            android:text="Capiralización (MXN):"
+            android:text="Capitalización (MXN):"
             android:theme="@style/sin_fondo"
             android:textSize="@dimen/normal_text"
             android:fontFamily="@font/robotoslab_bold"/>

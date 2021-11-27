@@ -35,14 +35,4 @@ public class LoginViewModel extends ViewModel {
         });
     }
 
-    public void agregarIngresos(Ingresos ingresos, Activity activity) {
-        database.agregarIngreso(ingresos, activity, new Respuesta() {
-            @Override
-            public void respuesta(Object respuesta) {
-                if (respuesta == null){
-                    Toast.makeText(activity,"No se pudo crear el ingreso",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-    }
 }
