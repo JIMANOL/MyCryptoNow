@@ -30,6 +30,18 @@
     <fragment
         android:id="@+id/nav_agregar_crypto"
         android:name="com.example.mycryptonow.ui.agregar.AgregarFragment"
-        android:label="fragment_agregar"
+        android:label="@string/menu_dialog_agregar"
         tools:layout="@layout/fragment_agregar" />
+
+    <fragment
+        android:id="@+id/nav_lista_accesos"
+        android:name="com.example.mycryptonow.ui.listaaccesos.listaAccesosFragment"
+        android:label="@string/lista_accesos"
+        tools:layout="@layout/lista_accesos_fragment" />
+
+    <fragment
+        android:id="@+id/nav_creditos"
+        android:name="com.example.mycryptonow.ui.creditos.CreditosFragment"
+        android:label="@string/menu_creditos"
+        tools:layout="@layout/fragment_creditos" />
 </navigation>

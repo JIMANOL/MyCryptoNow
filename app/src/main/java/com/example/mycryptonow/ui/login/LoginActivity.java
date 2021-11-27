@@ -115,21 +115,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            try {
-                Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-                List<Address> list = geocoder.getFromLocation(
-                        loc.getLatitude(), loc.getLongitude(), 1);
-                if (!list.isEmpty()) {
-                    Address DirCalle = list.get(0);
-                    direccion=DirCalle.getAddressLine(0);
+            if(loc != null){
+                try {
+                    Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+                    List<Address> list = geocoder.getFromLocation(loc.getLatitude(), loc.getLongitude(), 1);
+                    if (!list.isEmpty()) {
+                        Address DirCalle = list.get(0);
+                        direccion=DirCalle.getAddressLine(0);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
 
             Ingresos ingresos = new Ingresos(fecha,dispositivo,direccion);
 
             modelo.agregarIngresos(ingresos,activity);
+
+            Intent intent = new Intent(activity, MainActivity.class);
+            activity.startActivity(intent);
+            activity.finish();
         }
     }
 

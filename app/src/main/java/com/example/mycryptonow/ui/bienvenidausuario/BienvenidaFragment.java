@@ -14,6 +14,7 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -127,6 +128,8 @@ public class BienvenidaFragment extends Fragment {
 //        line.animateX(2000);  // Animación del eje X
 //        line.animateXY(2000,2000);// Animación mixta de dos ejes XY
 
+
+
         return root;
     }
 
@@ -136,6 +139,14 @@ public class BienvenidaFragment extends Fragment {
 
         //Agregar valores
         tvNombreUsuario.setText(user.getDisplayName());
+
+        tvNombreUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("Imagen",String.valueOf(pie.saveToGallery("Captura.jpg")));
+                pie.getChartBitmap();
+            }
+        });
     }
 
     @Override
