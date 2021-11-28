@@ -23,6 +23,7 @@ import com.example.mycryptonow.R;
 import com.example.mycryptonow.ui.login.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class SplashScreenActivity extends AppCompatActivity {
     //Variables globales
@@ -41,6 +42,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         try {
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+            FirebaseMessaging.getInstance().setAutoInitEnabled(true);
         }catch (Exception e){
             Log.d("Firebase persistencia",e.getMessage());
         }
