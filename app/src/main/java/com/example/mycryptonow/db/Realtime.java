@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.annotation.NonNull;
 
 import com.example.mycryptonow.interfaces.Respuesta;
+import com.example.mycryptonow.models.ControlCreditosCMC;
 import com.example.mycryptonow.models.Datum;
 import com.example.mycryptonow.models.Ingresos;
 import com.example.mycryptonow.models.MiCrypto;
@@ -26,6 +27,7 @@ public class Realtime {
     private final String COLECCION_CRYPTOS_INFO_NOMBRE="informacion_cryptos";
     private final String COLECCION_INGRESOS_NOMBRE="informacion_ingresos";
     private final String COLECCION_MIS_CRYPTOS_NOMBRE="informacion_de_los_usuarios";
+    private final String COLECCION_CONTROL_CMC_NOMBRE="control_cmc_creditos";
 
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
@@ -209,6 +211,38 @@ public class Realtime {
             }
         });
     }
+
+    public void agregarControlControlCreditos(ControlCreditosCMC controlCreditosCMC, Activity activity, Respuesta respuesta){
+        databaseReference.child(COLECCION_CONTROL_CMC_NOMBRE).setValue(controlCreditosCMC).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    respuesta.respuesta(new Object());
+                }else{
+                    respuesta.respuesta(null);
+                }
+            }
+        });
+    }
+
+    public void obtenerControlControlCreditos(Activity activity,Respuesta respuesta){
+        databaseReference.child(COLECCION_CRYPTOS_INFO_NOMBRE).get().addOnCompleteListener(activity, new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()){
+
+                    ControlCreditosCMC dato = new ControlCreditosCMC();
+                    dato.fromSnapshot(task.getResult());
+
+                    respuesta.respuesta(dato);
+                }
+            }
+        });
+    }
+
+
+
+
 
 
 }
