@@ -9,6 +9,8 @@ import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -28,6 +30,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 public class SplashScreenActivity extends AppCompatActivity {
     //Variables globales
     private LottieAnimationView billetera;
+    private static final String CHANNEL_ID = "1";
     private Activity activity;
 
     @Override
@@ -40,9 +43,12 @@ public class SplashScreenActivity extends AppCompatActivity {
         activity= this;
 
 
+
+
         try {
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
             FirebaseMessaging.getInstance().setAutoInitEnabled(true);
+            createNotificationChannel();
         }catch (Exception e){
             Log.d("Firebase persistencia",e.getMessage());
         }
@@ -76,5 +82,18 @@ public class SplashScreenActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         requesPermissions();
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Avisos";
+            String description = "Un canal donde se realizaran los avisos de la aplicacion";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 }
