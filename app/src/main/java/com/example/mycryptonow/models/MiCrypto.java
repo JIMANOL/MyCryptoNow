@@ -19,6 +19,9 @@ public class MiCrypto implements Serializable {
         this.nombreCrypto = nombreCrypto;
     }
 
+    public MiCrypto() {
+    }
+
     public String getId() {
         return id;
     }

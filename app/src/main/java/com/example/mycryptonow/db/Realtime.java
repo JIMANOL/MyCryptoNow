@@ -186,5 +186,29 @@ public class Realtime {
         });
     }
 
+    public void obtenerListaMisCryptos(Activity activity,Respuesta respuesta){
+        databaseReference.child(COLECCION_MIS_CRYPTOS_NOMBRE).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(activity, new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                ArrayList<ArrayList<MiCrypto>> listaCryptos = new ArrayList<>();
+                ArrayList<MiCrypto> listaInfoCrypto = new ArrayList<>();
+                if (task.isSuccessful()){
+
+                    for (DataSnapshot dataSnapshot : task.getResult().getChildren()){
+                        for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren() ){
+                            MiCrypto dato = new MiCrypto();
+                            dato.fromSnapShot(dataSnapshot1);
+                            listaInfoCrypto.add(dato);
+                        }
+                        listaCryptos.add(listaInfoCrypto);
+                        listaInfoCrypto = new ArrayList<>();
+                    }
+
+                    respuesta.respuesta(listaCryptos);
+                }
+            }
+        });
+    }
+
 
 }
