@@ -88,22 +88,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
         });
+
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if(currentUser != null){
+            modelo.buscarCorroe(currentUser.getEmail(),activity);
+        }
     }
 
     private void mostrarMensaje(String mensaje) {
         Toast toast = Toast.makeText(this,mensaje,Toast.LENGTH_LONG);
         toast.show();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(activity, MainActivity.class);
-            activity.startActivity(intent);
-            activity.finish();
-        }
     }
 
 

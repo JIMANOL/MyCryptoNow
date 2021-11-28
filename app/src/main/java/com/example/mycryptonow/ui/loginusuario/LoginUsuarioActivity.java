@@ -31,6 +31,7 @@ import com.example.mycryptonow.models.Ingresos;
 import com.example.mycryptonow.models.Usuario;
 import com.example.mycryptonow.ui.home.MainActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;
 import java.net.NetworkInterface;
@@ -100,37 +101,32 @@ public class LoginUsuarioActivity extends AppCompatActivity implements View.OnCl
                     laVerificacion.addAnimatorListener(new AnimatorListenerAdapter() {
                         @Override
                         public void onAnimationEnd(Animator animation) {
-                            if(usuario.getTipoUsuario().equals("1")){
+                            String fecha = simpleDateFormat.format(new Date());
+                            String dispositivo = getMacAddress();
+                            String direccion="";
 
-                            }else{
-                                String fecha = simpleDateFormat.format(new Date());
-                                String dispositivo = getMacAddress();
-                                String direccion="";
-
-                                if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                            if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
 
-                                }
-
-                                locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                                loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                                try {
-                                    Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
-                                    List<Address> list = geocoder.getFromLocation(
-                                            loc.getLatitude(), loc.getLongitude(), 1);
-                                    if (!list.isEmpty()) {
-                                        Address DirCalle = list.get(0);
-                                        direccion=DirCalle.getAddressLine(0);
-                                    }
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-
-                                Ingresos ingresos = new Ingresos(fecha,dispositivo,direccion);
-
-                                modelo.agregarIngresos(ingresos,activity);
                             }
 
+                            locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                            loc = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                            try {
+                                Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+                                List<Address> list = geocoder.getFromLocation(
+                                        loc.getLatitude(), loc.getLongitude(), 1);
+                                if (!list.isEmpty()) {
+                                    Address DirCalle = list.get(0);
+                                    direccion=DirCalle.getAddressLine(0);
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                            Ingresos ingresos = new Ingresos(fecha,dispositivo,direccion);
+
+                            modelo.agregarIngresos(ingresos,activity,usuario);
 
                         }
                     });
@@ -150,6 +146,16 @@ public class LoginUsuarioActivity extends AppCompatActivity implements View.OnCl
         toast.show();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            Intent intent = new Intent(activity, MainActivity.class);
+            intent.putExtra("usuario",usuario);
+            activity.startActivity(intent);
+            activity.finish();
+        }
+    }
 
     @Override
     public void onClick(View view) {

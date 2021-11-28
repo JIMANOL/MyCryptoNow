@@ -135,7 +135,7 @@ public class Realtime {
                     Usuario usuario = new Usuario();
                     for (DataSnapshot dataSnapshot : task.getResult().getChildren()) {
                         usuario.fromSnapShot(dataSnapshot);
-                        if(usuario.getCorreoUsuario().equals(correo)){
+                        if(usuario.getCorreoUsuario().equalsIgnoreCase(correo)){
                             usuarioFinal=usuario;
                         }
                         usuario = new Usuario();

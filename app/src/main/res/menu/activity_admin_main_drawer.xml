@@ -9,17 +9,13 @@
             android:icon="@drawable/ic_home"
             android:title="@string/bienvenido" />
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_admin_home"
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_lista_cryptos"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_lista_cryptos" />
-        <item
-            android:id="@+id/nav_lista_mis_cryptos"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_lista_mis_cryptos" />
         <item
             android:id="@+id/nav_lista_accesos"
             android:icon="@drawable/ic_menu_slideshow"

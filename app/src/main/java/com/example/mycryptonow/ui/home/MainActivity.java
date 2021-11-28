@@ -10,13 +10,13 @@ import android.widget.Toast;
 
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.databinding.ActivityMainBinding;
-import com.example.mycryptonow.db.GaleriaFireBase;
 import com.example.mycryptonow.db.Realtime;
 import com.example.mycryptonow.interfaces.APIInterface;
 import com.example.mycryptonow.interfaces.Respuesta;
 import com.example.mycryptonow.models.APIClient;
 import com.example.mycryptonow.models.CryptoCoinMarket;
 import com.example.mycryptonow.models.Datum;
+import com.example.mycryptonow.models.Usuario;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity{
     private Activity activity;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private Usuario usuario;
 
     private int creditos=3;
 
@@ -55,13 +56,15 @@ public class MainActivity extends AppCompatActivity{
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
+        usuario = (Usuario) getIntent().getSerializableExtra("usuario");
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_lista_cryptos, R.id.nav_lista_mis_cryptos,R.id.nav_lista_accesos, R.id.nav_creditos)
+                R.id.nav_home, R.id.nav_lista_cryptos, R.id.nav_lista_mis_cryptos,R.id.nav_lista_accesos, R.id.nav_creditos,
+                R.id.nav_admin_home,R.id.nav_bienvenida)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -124,6 +127,15 @@ public class MainActivity extends AppCompatActivity{
         });
 
         //hilo.start();
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);   // la vista del menu drawer
+        if(usuario.getTipoUsuario().equals("0")){
+            navigationView.getMenu().clear();      //elimina anterior menu drawer
+            navigationView.inflateMenu(R.menu.activity_main_drawer); //carga el menu drawer
+        }else{
+            navigationView.getMenu().clear();
+            navigationView.inflateMenu(R.menu.activity_admin_main_drawer);
+        }
     }
 
     @Override
