@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mycryptonow.R;
+import com.example.mycryptonow.interfaces.Respuesta;
 import com.example.mycryptonow.models.Datum;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -99,6 +100,7 @@ public class DetalleCryptoFragment extends Fragment {
         tvCapitalizacion = root.findViewById(R.id.tvCapMarketDetalleCrypto);
         tvVariacion1h = root.findViewById(R.id.tvVariacion1hDetalleCrypto);
         tvVariacion24h = root.findViewById(R.id.tvVariacion24hDetalleCrypto);
+        mViewModel = new ViewModelProvider(this).get(DetalleCryptoViewModel.class);
 
         tvNombreTitulo.setText(crypto.getName());
         tvPrecioTitulo.setText(numberFormat.format(crypto.getQuote().getMxn().getPrice()));
@@ -131,6 +133,17 @@ public class DetalleCryptoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String filename = "GraficaLineal"+crypto.getName()+simpleDateFormat.format(new Date())+".jpg";
+
+                mViewModel.subirImagen(lcGrafica.getChartBitmap(), filename, new Respuesta() {
+                    @Override
+                    public void respuesta(Object respuesta) {
+                        if(respuesta != null){
+                            Toast.makeText(getContext(),"Se subio correctamente la foto",Toast.LENGTH_LONG).show();
+                        }else{
+                            Toast.makeText(getContext(),"No se pudo subir la foto",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
 
                 if(lcGrafica.saveToGallery(filename)){
                     Toast.makeText(getContext(),"Se guardo la imagen correctamente",Toast.LENGTH_LONG).show();
