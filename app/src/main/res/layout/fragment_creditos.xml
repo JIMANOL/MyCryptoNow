@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -21,9 +21,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/creditos"
                 android:textSize="30dp"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:fontFamily="@font/robotoslab_bold"
                 android:gravity="center"/>
+
             <ImageView
-                android:id="@+id/ivFotoCR"
+                android:layout_marginTop="@dimen/espaciado_normal"
                 android:layout_width="196dp"
                 android:layout_height="170dp"
                 android:layout_gravity="center"
@@ -31,24 +34,31 @@
                 app:srcCompat="@drawable/logotec"/>
 
             <TextView
+                android:layout_marginTop="@dimen/espaciado_normal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/universidad"
                 android:textSize="20dp"
                 android:gravity="center"/>
+
             <TextView
+                android:layout_marginTop="@dimen/espaciado_normal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/especialidad"
                 android:textSize="20dp"
                 android:gravity="center"/>
+
             <TextView
+                android:layout_marginTop="@dimen/espaciado_normal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/materia"
                 android:textSize="20dp"
                 android:gravity="center"/>
+
             <TextView
+                android:layout_marginTop="@dimen/espaciado_normal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/alumno"
@@ -56,19 +66,56 @@
                 android:gravity="center"/>
 
             <TextView
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nombre_max"
+                android:textSize="20dp"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_marginTop="@dimen/espaciado_pequenia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nombre_imanol"
+                android:textSize="20dp"
+                android:gravity="center"/>
+
+
+            <TextView
+                android:layout_marginTop="@dimen/espaciado_pequenia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nombre_enrique"
+                android:textSize="20dp"
+                android:gravity="center"/>
+
+
+            <TextView
+                android:layout_marginTop="@dimen/espaciado_amplio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/profesor"
                 android:textSize="20dp"
                 android:gravity="center"/>
             <TextView
+                android:layout_marginTop="@dimen/espaciado_normal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/clase"
                 android:textSize="20dp"
                 android:gravity="center"/>
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:lottie_rawRes="@raw/bienvenida"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
+
             <TextView
+                android:layout_marginTop="@dimen/espaciado_normal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/version"

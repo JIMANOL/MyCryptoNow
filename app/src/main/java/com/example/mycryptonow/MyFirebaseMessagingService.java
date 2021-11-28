@@ -20,8 +20,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(getBaseContext(),remoteMessage.getNotification().getTitle(),Toast.LENGTH_LONG).show();
-
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(getBaseContext(), String.valueOf(1))
                         .setSmallIcon(R.drawable.logo_cryptos)
                         .setContentTitle(remoteMessage.getNotification().getTitle())

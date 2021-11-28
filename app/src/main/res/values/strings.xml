@@ -61,7 +61,10 @@
     <string name="acerca">Acerca de...</string>
     <string name="universidad">Instituto Tecnologico de Toluca</string>
     <string name="especialidad">Ingenieria en sistemas computacionales</string>
-    <string name="alumno">Alumno: José Enrique Maldonado Verazas, Maximiliano Ovando Ramirez, Jesus Imanol Castano Gil.</string>
+    <string name="alumno">Alumno:</string>
+    <string name="nombre_max">Maximiliano Ovando Ramirez</string>
+    <string name="nombre_imanol">Jesus Imanol Castano Gil</string>
+    <string name="nombre_enrique">José Enrique Maldonado Verazas</string>
     <string name="materia">Desarrollo móvil</string>
     <string name="profesor">Profesora: Rocío Elizabeth Pulido Alba</string>
     <string name="clase">Lunes,Martes,Jueves de 5 a 7 PM</string>

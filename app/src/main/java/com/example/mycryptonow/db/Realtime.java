@@ -1,6 +1,7 @@
 package com.example.mycryptonow.db;
 
 import android.app.Activity;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -226,15 +227,18 @@ public class Realtime {
     }
 
     public void obtenerControlControlCreditos(Activity activity,Respuesta respuesta){
-        databaseReference.child(COLECCION_CRYPTOS_INFO_NOMBRE).get().addOnCompleteListener(activity, new OnCompleteListener<DataSnapshot>() {
+        databaseReference.child(COLECCION_CONTROL_CMC_NOMBRE).get().addOnCompleteListener(activity, new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()){
 
                     ControlCreditosCMC dato = new ControlCreditosCMC();
-                    dato.fromSnapshot(task.getResult());
-
-                    respuesta.respuesta(dato);
+                    try {
+                        dato.fromSnapshot(task.getResult());
+                        respuesta.respuesta(dato);
+                    }catch (Exception e){
+                        respuesta.respuesta(null);
+                    }
                 }
             }
         });

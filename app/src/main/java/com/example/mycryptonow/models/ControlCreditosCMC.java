@@ -7,7 +7,6 @@ import java.io.Serializable;
 public class ControlCreditosCMC implements Serializable {
     public static final int maximoDeCreditos = 333;
 
-    private String id;
     private int conteoCreditos;
     private String fecha;
 
@@ -22,15 +21,6 @@ public class ControlCreditosCMC implements Serializable {
     public static int getMaximoDeCreditos() {
         return maximoDeCreditos;
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public int getConteoCreditos() {
         return conteoCreditos;
     }
@@ -48,7 +38,6 @@ public class ControlCreditosCMC implements Serializable {
     }
 
     public void fromSnapshot(DataSnapshot dataSnapshot){
-        id = dataSnapshot.getKey();
         conteoCreditos = Integer.parseInt(dataSnapshot.child("conteoCreditos").getValue().toString());
         fecha = dataSnapshot.child("fecha").getValue().toString();
     }

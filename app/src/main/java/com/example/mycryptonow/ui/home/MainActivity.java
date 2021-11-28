@@ -39,7 +39,6 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity{
 
-    private APIInterface apiInterface;
     private MainViewModel modelo;
     private Activity activity;
     private AppBarConfiguration mAppBarConfiguration;
@@ -78,55 +77,6 @@ public class MainActivity extends AppCompatActivity{
 
         modelo = new ViewModelProvider(this).get(MainViewModel.class);
         activity = this;
-
-        Realtime base = new Realtime();
-        base.obtenerListaCryptos(this, new Respuesta() {
-            @Override
-            public void respuesta(Object respuesta) {
-                ArrayList<ArrayList<Datum>> listaCryptos = (ArrayList<ArrayList<Datum>>) respuesta;
-                for (ArrayList<Datum> lista : listaCryptos){
-                    for (Datum dato : lista){
-                        Log.d("Informacion", dato.getName()+" "+dato.getQuote().getMxn().getPercentChange1h());
-                    }
-                }
-            }
-        });
-
-        apiInterface = APIClient.getClient().create(APIInterface.class);
-        Thread hilo = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                do{
-                    Call<CryptoCoinMarket> call2 = apiInterface.doGetUserList("1","10", "MXN");
-                    call2.enqueue(new Callback<CryptoCoinMarket>() {
-                        @Override
-                        public void onResponse(Call<CryptoCoinMarket> call, Response<CryptoCoinMarket> response) {
-                            CryptoCoinMarket list = response.body();
-                            Log.d("Creditos",String.valueOf(creditos));
-                            creditos += list.getStatus().getCreditCount();
-                            for (Datum crypto : list.getData()) {
-                                modelo.agregarInformacionCryptos(crypto,activity);
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<CryptoCoinMarket> call, Throwable t) {
-                            Toast.makeText(activity, "onFailure", Toast.LENGTH_SHORT).show();
-                            Log.d("XXXX", t.getLocalizedMessage());
-                            call.cancel();
-                        }
-                    });
-                    try {
-                        Thread.sleep(1800000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    Log.d("Creditos",String.valueOf(creditos));
-                }while (creditos<333);
-            }
-        });
-
-        //hilo.start();
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);   // la vista del menu drawer
         if(usuario.getTipoUsuario().equals("0")){
