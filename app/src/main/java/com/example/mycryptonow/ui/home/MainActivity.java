@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.databinding.ActivityMainBinding;
+import com.example.mycryptonow.db.GaleriaFireBase;
 import com.example.mycryptonow.db.Realtime;
 import com.example.mycryptonow.interfaces.APIInterface;
 import com.example.mycryptonow.interfaces.Respuesta;
@@ -29,6 +30,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -128,6 +130,8 @@ public class MainActivity extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
+            case  R.id.action_settings:
+                return true;
             case R.id.action_logout:
                 Toast.makeText(this,"Hasta luego",Toast.LENGTH_LONG).show();
                 FirebaseAuth firebaseAuth=firebaseAuth= FirebaseAuth.getInstance();

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import com.example.mycryptonow.interfaces.Respuesta;
 import com.example.mycryptonow.models.Datum;
 import com.example.mycryptonow.models.Ingresos;
+import com.example.mycryptonow.models.MiCrypto;
 import com.example.mycryptonow.models.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,10 +20,12 @@ import java.util.ArrayList;
 import java.util.concurrent.Executor;
 
 public class Realtime {
+
     //Constantes
     private final String COLECCION_USUARIOS_NOMBRE="usuarios";
     private final String COLECCION_CRYPTOS_INFO_NOMBRE="informacion_cryptos";
     private final String COLECCION_INGRESOS_NOMBRE="informacion_ingresos";
+    private final String COLECCION_MIS_CRYPTOS_NOMBRE="informacion_de_los_usuarios";
 
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
@@ -136,6 +139,48 @@ public class Realtime {
                         usuario = new Usuario();
                     }
                     respuesta.respuesta(usuarioFinal);
+                }
+            }
+        });
+    }
+
+
+    public void agregarMiCrypto(MiCrypto crypto, Activity activity, Respuesta respuesta){
+        databaseReference.child(COLECCION_MIS_CRYPTOS_NOMBRE).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).push().setValue(crypto).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    respuesta.respuesta(new Object());
+                }else{
+                    respuesta.respuesta(null);
+                }
+            }
+        });
+    }
+
+
+
+    public void actualizarMiCrypto(MiCrypto crypto, Activity activity, Respuesta respuesta){
+        databaseReference.child(COLECCION_MIS_CRYPTOS_NOMBRE).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(crypto.getId()).setValue(crypto).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    respuesta.respuesta(new Object());
+                }else{
+                    respuesta.respuesta(null);
+                }
+            }
+        });
+    }
+
+    public void borrrarMiCrypto(MiCrypto crypto, Activity activity, Respuesta respuesta){
+        databaseReference.child(COLECCION_MIS_CRYPTOS_NOMBRE).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(crypto.getId()).removeValue().addOnCompleteListener(activity, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    respuesta.respuesta(new Object());
+                }else{
+                    respuesta.respuesta(null);
                 }
             }
         });
