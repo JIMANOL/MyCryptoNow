@@ -9,6 +9,8 @@ public class Ingresos {
     private  String dispositivo;
     private  String direccion;
 
+    public Ingresos() {
+    }
     public Ingresos(String fecha, String dispositivo, String direccion) {
         this.fecha = fecha;
         this.dispositivo = dispositivo;
