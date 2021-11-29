@@ -3,11 +3,16 @@ package com.example.mycryptonow.ui.homeadmin;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -76,6 +81,8 @@ public class homeAdmin extends Fragment {
 
         modelo.obtenerControlCryptos(getActivity());
 
+        procesoSegundoPlano();
+
         return root;
     }
 
@@ -109,5 +116,33 @@ public class homeAdmin extends Fragment {
             }
         });
     }
+
+    public void procesoSegundoPlano(){
+        Intent intent = new Intent(getActivity(),ConsultaValorSegundoPlano.class);
+        intent.putExtra("limite", 150);
+        getActivity().startService(intent);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        IntentFilter intentFilter = new IntentFilter("broadcast");
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(broadcastReceiver,intentFilter);
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(broadcastReceiver);
+    }
+
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int contador= intent.getIntExtra("contador",0);
+            actualizarCrypto();
+        }
+    };
 
 }

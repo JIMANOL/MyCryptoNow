@@ -217,16 +217,18 @@ public class DetalleCryptoFragment extends Fragment {
         // Datos analógicos 1
         List<Entry> lineaInfo = new ArrayList<>();
         int i =0;
-
+        int diferencia = cryptos.size()-15;
 
         for (Datum crypto : cryptos) {
-            double info = crypto.getQuote().getMxn().getPrice();
-            float num = (float) info;
-            lineaInfo.add(new Entry(i ,num));
-            i+=1;
-            if(i >= 16){
-                break;
+            if(diferencia <= 0){
+                double info = crypto.getQuote().getMxn().getPrice();
+                float num = (float) info;
+                lineaInfo.add(new Entry(i ,num));
+                i+=1;
+            }else{
+                diferencia-=1;
             }
+
         }
 
         // 2. Cree por separado un conjunto de datos de polilínea a partir de los datos de cada grupo de colecciones de objetos de entrada
