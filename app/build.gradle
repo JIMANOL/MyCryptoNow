@@ -54,6 +54,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-messaging'
 
+    //QR
+    implementation 'com.journeyapps:zxing-android-embedded:3.2.0'
+    implementation 'com.google.zxing:core:3.3.0'
+
     //Extras
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation('com.squareup.retrofit2:retrofit:2.1.0') {
