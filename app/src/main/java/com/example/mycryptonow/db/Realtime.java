@@ -9,6 +9,7 @@ import com.example.mycryptonow.interfaces.Respuesta;
 import com.example.mycryptonow.models.ControlCreditosCMC;
 import com.example.mycryptonow.models.Datum;
 import com.example.mycryptonow.models.Ingresos;
+import com.example.mycryptonow.models.MensajeChat;
 import com.example.mycryptonow.models.MiCrypto;
 import com.example.mycryptonow.models.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +30,7 @@ public class Realtime {
     private final String COLECCION_INGRESOS_NOMBRE="informacion_ingresos";
     private final String COLECCION_MIS_CRYPTOS_NOMBRE="informacion_de_los_usuarios";
     private final String COLECCION_CONTROL_CMC_NOMBRE="control_cmc_creditos";
+    private final String COLECCION_MENSAJES_NOMBRE="mensajes_chat_errores";
 
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
@@ -244,7 +246,18 @@ public class Realtime {
         });
     }
 
-
+    public void agregarMensajeAlChat(MensajeChat mensaje, Activity activity){
+        databaseReference.child(COLECCION_MENSAJES_NOMBRE).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).push().setValue(mensaje).addOnCompleteListener(activity, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    //respuesta.respuesta(new Object());
+                }else{
+                    //respuesta.respuesta(null);
+                }
+            }
+        });
+    }
 
 
 
