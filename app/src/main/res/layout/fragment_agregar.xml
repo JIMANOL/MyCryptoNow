@@ -22,7 +22,7 @@
             android:textSize="30dp" />
 
         <ImageView
-            android:id="@+id/ivcFotoNP"
+            android:id="@+id/ivcQRNP"
             android:layout_width="196dp"
             android:layout_height="170dp"
             android:layout_gravity="center"
@@ -48,7 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:enabled="false"
-                android:inputType="text" />
+                android:inputType="text"
+                android:hint="Dirección de la cartera"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -60,7 +61,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                android:hint="Cantidad"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,7 +75,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:inputType="text" />
+                android:inputType="text"
+                android:hint="Nombre de la cartera"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,6 +102,18 @@
                 android:text="@string/btnagregar"
                 android:textSize="18dp" />
 
+            <Button
+                android:id="@+id/btnregresarAg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
+                android:text="@string/btnregresar"
+                android:textSize="18dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="100dp"/>
 
         </LinearLayout>
 

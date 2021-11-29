@@ -13,6 +13,14 @@
             android:icon="@drawable/home"
             android:title="@string/menu_home" />
         <item
+            android:id="@+id/nav_agregar_crypto"
+            android:icon="@drawable/ic_baseline_add_circle_24"
+            android:title="@string/menu_agregar" />
+        <item
+            android:id="@+id/nav_editar"
+            android:icon="@drawable/ic_baseline_add_circle_24"
+            android:title="@string/menu_agregar" />
+        <item
             android:id="@+id/nav_lista_cryptos"
             android:icon="@drawable/lista"
             android:title="@string/menu_lista_cryptos" />

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="tipo">
+
+        <item>Seleccione la cryptomoneda</item>
+        <item>Bitcoin</item>
+        <item>Ethereum</item>
+        <item>Litecoin</item>
+        <item>NEO</item>
+    </string-array>
+
+</resources>
