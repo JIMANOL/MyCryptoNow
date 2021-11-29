@@ -74,9 +74,9 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
         etDireccion=root.findViewById(R.id.etdireccionAg);
         etNombre=root.findViewById(R.id.etnombreAg);
         etCantidad=root.findViewById(R.id.etcantidadAg);
-        tvMensajedireccion=root.findViewById(R.id.tvMensajedirec);
+        /*tvMensajedireccion=root.findViewById(R.id.tvMensajedirec);
         tvMensajecantidad=root.findViewById(R.id.tvMensajecant);
-        tvMensajenombre=root.findViewById(R.id.tvMensajenom);
+        tvMensajenombre=root.findViewById(R.id.tvMensajenom);*/
     }
     private void ButtonComponentes(View root){
 
