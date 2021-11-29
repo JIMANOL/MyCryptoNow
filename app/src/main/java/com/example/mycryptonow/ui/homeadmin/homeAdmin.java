@@ -81,7 +81,6 @@ public class homeAdmin extends Fragment {
 
         modelo.obtenerControlCryptos(getActivity());
 
-        procesoSegundoPlano();
 
         return root;
     }
@@ -95,26 +94,30 @@ public class homeAdmin extends Fragment {
 
     public void actualizarCrypto(){
         apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<CryptoCoinMarket> call2 = apiInterface.doGetUserList("1","10", "MXN");
-        call2.enqueue(new Callback<CryptoCoinMarket>() {
-            @Override
-            public void onResponse(Call<CryptoCoinMarket> call, Response<CryptoCoinMarket> response) {
-                CryptoCoinMarket list = response.body();
-                controlCreditosCMC.setConteoCreditos(controlCreditosCMC.getConteoCreditos()+list.getStatus().getCreditCount());
-                modelo.actualizarControlCryptos(controlCreditosCMC,getActivity());
-                for (Datum crypto : list.getData()) {
-                    modelo.agregarInformacionCryptos(crypto,getActivity());
+        if(controlCreditosCMC.getConteoCreditos() <= 333){
+            Call<CryptoCoinMarket> call2 = apiInterface.doGetUserList("1","10", "MXN");
+            call2.enqueue(new Callback<CryptoCoinMarket>() {
+                @Override
+                public void onResponse(Call<CryptoCoinMarket> call, Response<CryptoCoinMarket> response) {
+                    CryptoCoinMarket list = response.body();
+                    controlCreditosCMC.setConteoCreditos(controlCreditosCMC.getConteoCreditos()+list.getStatus().getCreditCount());
+                    modelo.actualizarControlCryptos(controlCreditosCMC,getActivity());
+                    for (Datum crypto : list.getData()) {
+                        modelo.agregarInformacionCryptos(crypto,getActivity());
+                    }
+                    Toast.makeText(getContext(), "Se actualizo correctamen el precio",Toast.LENGTH_LONG).show();
                 }
-                Toast.makeText(getContext(), "Se actualizo correctamen el precio",Toast.LENGTH_LONG).show();
-            }
 
-            @Override
-            public void onFailure(Call<CryptoCoinMarket> call, Throwable t) {
-                Toast.makeText(getContext(), "onFailure", Toast.LENGTH_SHORT).show();
-                Log.d("Error", t.getLocalizedMessage());
-                call.cancel();
-            }
-        });
+                @Override
+                public void onFailure(Call<CryptoCoinMarket> call, Throwable t) {
+                    Toast.makeText(getContext(), "onFailure", Toast.LENGTH_SHORT).show();
+                    Log.d("Error", t.getLocalizedMessage());
+                    call.cancel();
+                }
+            });
+        }else{
+            Toast.makeText(getContext(),"Ya no hay mas creditos",Toast.LENGTH_LONG).show();
+        }
     }
 
     public void procesoSegundoPlano(){
@@ -128,6 +131,7 @@ public class homeAdmin extends Fragment {
         super.onResume();
         IntentFilter intentFilter = new IntentFilter("broadcast");
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(broadcastReceiver,intentFilter);
+        procesoSegundoPlano();
 
     }
 
