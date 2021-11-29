@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.interfaces.Respuesta;
+import com.example.mycryptonow.libreriasPropias.MiMarcadorPersonalizado;
 import com.example.mycryptonow.models.Datum;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -35,6 +36,8 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
@@ -47,6 +50,7 @@ import java.util.List;
 
 public class DetalleCryptoFragment extends Fragment {
 
+    private final MiMarcadorPersonalizado tMarket = new MiMarcadorPersonalizado();
     private DetalleCryptoViewModel mViewModel;
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd_MM_YYYY_hh_mm_ss");
     private DecimalFormat decimalFormat = new DecimalFormat("#00.00");
@@ -65,6 +69,7 @@ public class DetalleCryptoFragment extends Fragment {
     private TextView tvCapitalizacion;
     private TextView tvVariacion1h;
     private TextView tvVariacion24h;
+
 
     public static DetalleCryptoFragment newInstance() {
         return new DetalleCryptoFragment();
@@ -167,6 +172,16 @@ public class DetalleCryptoFragment extends Fragment {
     private void initData() {
         lcGrafica.setBackgroundColor(Color.parseColor("#0f0f0f"));
         setDescription("Grafica de precio "+crypto.getName()); // Descripción del conjunto
+        lcGrafica.setMarker(tMarket);
+        lcGrafica.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+                tMarket.refreshContent(e, h);
+            }
+
+            @Override
+            public void onNothingSelected() {}
+        });
         setLegend();
         setYAxis(); // Establecer eje Y
         setXAxis(); // Establecer el eje X
@@ -270,6 +285,9 @@ public class DetalleCryptoFragment extends Fragment {
         lineDataSet1.setFillColor (Color.WHITE); // Relleno blanco
         lineDataSet1.setFillAlpha (65); // Transparencia
         // Establezca el ancho de línea en 2
+
+
+
         lcGrafica.setData(lineData);
     }
 
