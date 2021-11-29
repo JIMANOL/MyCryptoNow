@@ -25,6 +25,8 @@
                  android:layout_height="450dp"
                  android:id="@+id/chat_errores_user"
                 android:divider="#fff"
+                 android:transcriptMode="alwaysScroll"
+                 android:stackFromBottom="true"
                 />
 
             <LinearLayout
