@@ -4,6 +4,7 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.DatePickerDialog;
@@ -76,6 +77,13 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
         EditTextComponentes(root);
         ButtonComponentes(root);
         SpinnerComponentes(root);
+        modelo = new ViewModelProvider(this).get(AgregarViewModel.class);
+        modelo.getCrypto().observe(getActivity(), new Observer() {
+            @Override
+            public void onChanged(Object o) {
+                mostrarMensaje("Se agrego correctamente");
+            }
+        });
 
     }
     private void EditTextComponentes(View root){
@@ -114,7 +122,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
             case R.id.ivcQRNP:
 
 
-                //IntentIntegrator.forSupportFragment(this).initiateScan();
+                IntentIntegrator.forSupportFragment(this).initiateScan();
 
 
                 break;
@@ -130,7 +138,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
 
     }
 
-    /*public void onActivityResult(int requestCode, int resultCode,Intent data) {
+    public void onActivityResult(int requestCode, int resultCode,Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
             if(result.getContents() == null) {
@@ -143,7 +151,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
-    }*/
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

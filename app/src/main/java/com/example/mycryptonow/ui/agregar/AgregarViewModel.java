@@ -24,7 +24,7 @@ public class AgregarViewModel extends ViewModel {
         database.agregarMiCrypto(miCrypto, activity, new Respuesta() {
             @Override
             public void respuesta(Object respuesta) {
-
+                miCryptoMutableLiveData.setValue(new MiCrypto());
             }
         });
     }
