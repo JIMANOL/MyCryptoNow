@@ -55,7 +55,7 @@ public class ListaMisCryptosFragment extends Fragment {
                 Log.d("Paso dato",String.valueOf(dato.getId()));
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("hola", dato);
-                Navigation.findNavController(view).navigate(R.id.nav_agregar_crypto,bundle);
+                Navigation.findNavController(view).navigate(R.id.nav_agrega,bundle);
             }
         });
     }

@@ -34,9 +34,11 @@ import com.example.mycryptonow.models.Datum;
 import com.example.mycryptonow.models.MiCrypto;
 import com.example.mycryptonow.models.Usuario;
 import com.example.mycryptonow.ui.listamiscryptos.ListaMisCryptosFragment;
+
 import com.example.mycryptonow.ui.registro.RegistroViewModel;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
 
 import java.io.File;
 import java.util.Calendar;
@@ -48,7 +50,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
     private ImageView ivQR;
     private EditText etDireccion,etCantidad,etNombre;
     private Spinner spnTipoCryp;
-    private Button btnAgregar,btnRegresar;
+    private Button btnAgregar;
     public static String t;
     private TextView tvMensajedireccion,tvMensajecantidad,tvMensajenombre;
     Realtime database;
@@ -80,17 +82,15 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
         etDireccion=root.findViewById(R.id.etdireccionAg);
         etNombre=root.findViewById(R.id.etnombreAg);
         etCantidad=root.findViewById(R.id.etcantidadAg);
-        tvMensajedireccion=root.findViewById(R.id.tvMensajedirec);
+        /*tvMensajedireccion=root.findViewById(R.id.tvMensajedirec);
         tvMensajecantidad=root.findViewById(R.id.tvMensajecant);
-        tvMensajenombre=root.findViewById(R.id.tvMensajenom);
+        tvMensajenombre=root.findViewById(R.id.tvMensajenom);*/
     }
     private void ButtonComponentes(View root){
 
         ivQR=root.findViewById(R.id.ivcQRNP);
         btnAgregar=root.findViewById(R.id.btnagregarAg);
-        btnRegresar=root.findViewById(R.id.btnregresarAg);
         btnAgregar.setOnClickListener( this);
-        btnRegresar.setOnClickListener(this);
         ivQR.setOnClickListener(this);
 
     }
@@ -114,7 +114,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
             case R.id.ivcQRNP:
 
 
-                IntentIntegrator.forSupportFragment(this).initiateScan();
+                //IntentIntegrator.forSupportFragment(this).initiateScan();
 
 
                 break;
@@ -122,14 +122,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
                 validarInformacion();
                 break;
 
-            case R.id.btnregresarAg:
-                try {
-                    finalize();
-                } catch (Throwable throwable) {
-                    throwable.printStackTrace();
-                }
 
-                break;
 
 
         }
@@ -137,7 +130,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
 
     }
 
-    public void onActivityResult(int requestCode, int resultCode,Intent data) {
+    /*public void onActivityResult(int requestCode, int resultCode,Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
             if(result.getContents() == null) {
@@ -150,7 +143,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
-    }
+    }*/
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

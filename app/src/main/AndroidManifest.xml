@@ -22,7 +22,6 @@
             android:exported="true"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.MyCryptoNow.NoActionBar" />
-        <activity android:name=".ui.agregar.Agregar" />
         <activity
             android:name=".ui.registro.RegistroActivity"
             android:exported="true" />
