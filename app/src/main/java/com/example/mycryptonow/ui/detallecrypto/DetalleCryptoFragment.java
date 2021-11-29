@@ -217,7 +217,7 @@ public class DetalleCryptoFragment extends Fragment {
         // Datos analógicos 1
         List<Entry> lineaInfo = new ArrayList<>();
         int i =0;
-        int diferencia = cryptos.size()-15;
+        int diferencia = cryptos.size()-100;
 
         for (Datum crypto : cryptos) {
             if(diferencia <= 0){

@@ -85,6 +85,7 @@ public class LoginUsuarioActivity extends AppCompatActivity implements View.OnCl
         tvCorreo = findViewById(R.id.tvCorreoUsuarioLogin);
         etContrasenia = findViewById(R.id.etPasswordLogin);
         btnAcccerder = findViewById(R.id.btnAccederLogin);
+        tvRestablecerContrasenia = findViewById(R.id.tvRecuperarContrasenia);
         tvMensaje = findViewById(R.id.tvMensajeLogin);
         tvRegresar = findViewById(R.id.tvRegresoLoginUsuario);
         modelo = new ViewModelProvider(this).get(LoginUsuarioViewModel.class);
@@ -92,6 +93,7 @@ public class LoginUsuarioActivity extends AppCompatActivity implements View.OnCl
         //Funcionalidad
         btnAcccerder.setOnClickListener(this);
         tvRegresar.setOnClickListener(this);
+        tvRestablecerContrasenia.setOnClickListener(this);
         modelo.getUsuario().observe(this, new Observer() {
             @Override
             public void onChanged(Object o) {
