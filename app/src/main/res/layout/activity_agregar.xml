@@ -55,6 +55,18 @@
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:id="@+id/tvMensajedirec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Direccion invalida, Scanee codigo QR"
+                android:textSize="@dimen/pequenia_text"
+                android:textColor="@color/red"
+                android:visibility="gone"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -69,6 +81,17 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:id="@+id/tvMensajecant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Ingrese la cantidad"
+                android:textSize="@dimen/pequenia_text"
+                android:textColor="@color/red"
+                android:visibility="gone"/>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -82,6 +105,18 @@
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvMensajenom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Ingrese el nombre"
+                android:textSize="@dimen/pequenia_text"
+                android:textColor="@color/red"
+                android:visibility="gone"/>
 
             <Spinner
                 android:id="@+id/spntipoAg"

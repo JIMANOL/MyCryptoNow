@@ -25,10 +25,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.models.Datum;
+import com.example.mycryptonow.models.MiCrypto;
+import com.example.mycryptonow.models.Usuario;
 import com.example.mycryptonow.ui.listamiscryptos.ListaMisCryptosFragment;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -44,7 +47,8 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
     private EditText etDireccion,etCantidad,etNombre;
     private Spinner spnTipoCryp;
     private Button btnAgregar,btnRegresar;
-
+    public static String t;
+    private TextView tvMensajedireccion,tvMensajecantidad,tvMensajenombre;
 
     public static AgregarFragment newInstance() {
         return new AgregarFragment();
@@ -72,6 +76,9 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
         etDireccion=root.findViewById(R.id.etdireccionAg);
         etNombre=root.findViewById(R.id.etnombreAg);
         etCantidad=root.findViewById(R.id.etcantidadAg);
+        tvMensajedireccion=root.findViewById(R.id.tvMensajedirec);
+        tvMensajecantidad=root.findViewById(R.id.tvMensajecant);
+        tvMensajenombre=root.findViewById(R.id.tvMensajenom);
     }
     private void ButtonComponentes(View root){
 
@@ -108,10 +115,15 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
 
                 break;
             case R.id.btnagregarAg:
-
+                validarInformacion();
                 break;
 
             case R.id.btnregresarAg:
+                try {
+                    finalize();
+                } catch (Throwable throwable) {
+                    throwable.printStackTrace();
+                }
 
                 break;
 
@@ -144,12 +156,74 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch (parent.getId()){
+            case R.id.spntipoAg:
+                if(position!=0){
+                    t=parent.getItemAtPosition(position).toString();
+                }else{
+                    t="";
+                }
+                break;
+        }
 
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    private void validarInformacion() {
+        String direccionWallet;
+        String cantidadCryptos;
+        String nombreBilletera;
+        String nombreCrypto=t;
+        boolean ban=true;
+
+        direccionWallet = etDireccion.getText().toString().trim();
+       
+        cantidadCryptos = etCantidad.getText().toString().trim();
+        if(!cantidadCryptos.matches("[0-9]+")){
+            ban=false;
+            //tvMensajecantidad.setVisibility(View.VISIBLE);
+        }else{
+            //tvMensajecantidad.setVisibility(View.GONE);
+        }
+        nombreBilletera = etNombre.getText().toString().trim();
+        if(!nombreBilletera.matches("[A-z]+")){
+            ban=false;
+            //tvMensajenombre.setVisibility(View.VISIBLE);
+        }else{
+            //tvMensajenombre.setVisibility(View.GONE);
+        }
+
+
+
+
+
+        if(direccionWallet.equals("") ||
+                cantidadCryptos.equals("") ||
+                nombreBilletera.equals("") ||
+                nombreCrypto.equals("")){
+            mostrarMensaje("Ingrese todos los campos solicitados, por favor.");
+        }else{
+            if(ban){
+                mostrarMensaje("si entro");
+                mostrarMensaje(t);
+                //MiCrypto miCrypto = new MiCrypto(direccionWallet,cantidadCryptos,nombreBilletera,nombreCrypto);
+                //modelo.crearUsuario(usuario,contrasenia,this);
+            }else{
+                mostrarMensaje("Campos incorrectos, por favor verifique su informacion");
+            }
+        }
+
+
+
+    }
+
+    private void mostrarMensaje(String mensaje) {
+        Toast toast = Toast.makeText(getContext(),mensaje,Toast.LENGTH_LONG);
+        toast.show();
     }
 }
