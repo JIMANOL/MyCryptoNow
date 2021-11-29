@@ -30,8 +30,6 @@ import android.widget.Toast;
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.models.Datum;
 import com.example.mycryptonow.ui.listamiscryptos.ListaMisCryptosFragment;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
 
 import java.io.File;
 import java.util.Calendar;
@@ -43,7 +41,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
     private ImageView ivQR;
     private EditText etDireccion,etCantidad,etNombre;
     private Spinner spnTipoCryp;
-    private Button btnAgregar,btnRegresar;
+    private Button btnAgregar;
 
 
     public static AgregarFragment newInstance() {
@@ -77,9 +75,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
 
         ivQR=root.findViewById(R.id.ivcQRNP);
         btnAgregar=root.findViewById(R.id.btnagregarAg);
-        btnRegresar=root.findViewById(R.id.btnregresarAg);
         btnAgregar.setOnClickListener( this);
-        btnRegresar.setOnClickListener(this);
         ivQR.setOnClickListener(this);
 
     }
@@ -103,15 +99,11 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
             case R.id.ivcQRNP:
 
 
-                IntentIntegrator.forSupportFragment(this).initiateScan();
+                //IntentIntegrator.forSupportFragment(this).initiateScan();
 
 
                 break;
             case R.id.btnagregarAg:
-
-                break;
-
-            case R.id.btnregresarAg:
 
                 break;
 
@@ -121,7 +113,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
 
     }
 
-    public void onActivityResult(int requestCode, int resultCode,Intent data) {
+    /*public void onActivityResult(int requestCode, int resultCode,Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
             if(result.getContents() == null) {
@@ -134,7 +126,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
-    }
+    }*/
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

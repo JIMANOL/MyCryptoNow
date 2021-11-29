@@ -102,18 +102,7 @@
                 android:text="@string/btnagregar"
                 android:textSize="18dp" />
 
-            <Button
-                android:id="@+id/btnregresarAg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_weight="1"
-                android:text="@string/btnregresar"
-                android:textSize="18dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="100dp"/>
 
         </LinearLayout>
 
