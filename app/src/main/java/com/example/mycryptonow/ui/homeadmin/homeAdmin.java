@@ -140,7 +140,6 @@ public class homeAdmin extends Fragment {
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            int contador= intent.getIntExtra("contador",0);
             actualizarCrypto();
         }
     };

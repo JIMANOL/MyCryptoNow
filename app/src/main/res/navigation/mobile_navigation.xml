@@ -72,6 +72,6 @@
     <fragment
         android:id="@+id/nav_agrega"
         android:name="com.example.mycryptonow.ui.agregar.AgregarFragment"
-        android:label="fragment_agregar"
+        android:label="@string/agregar"
         tools:layout="@layout/fragment_agregar" />
 </navigation>
