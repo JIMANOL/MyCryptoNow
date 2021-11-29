@@ -19,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mycryptonow.R;
@@ -42,6 +43,7 @@ public class homeAdmin extends Fragment {
     private ControlCreditosCMC controlCreditosCMC;
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/YYYY");
     private Button btnActualizar;
+    private TextView reloj;
 
     public static homeAdmin newInstance() {
         return new homeAdmin();
@@ -61,6 +63,7 @@ public class homeAdmin extends Fragment {
                 if(controlCreditosCMC2 != null){
                     if((simpleDateFormat.format(new Date()).equalsIgnoreCase(controlCreditosCMC2.getFecha()))){
                         controlCreditosCMC = controlCreditosCMC2;
+                        temporizador();
                     }else{
                         controlCreditosCMC = new ControlCreditosCMC(0,simpleDateFormat.format(new Date()));
                     }
@@ -71,6 +74,7 @@ public class homeAdmin extends Fragment {
         });
 
         btnActualizar = root.findViewById(R.id.btnActualizarCryptos);
+        reloj = root.findViewById(R.id.textView2);
 
         btnActualizar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,10 +124,40 @@ public class homeAdmin extends Fragment {
         }
     }
 
+    public void temporizador(){
+        Thread hilo = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int time5=300000;
+                int minutos=5;
+                int segundos = 0;
+
+                while (time5>0){
+                    reloj.setText("Tiempo= "+(minutos+":"+segundos));
+                    if(segundos==0){
+                        minutos--;
+                        segundos=60;
+                    }else{
+                        segundos--;
+                    }
+                    time5-=1000;
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        hilo.start();
+    }
+
     public void procesoSegundoPlano(){
+        temporizador();
         Intent intent = new Intent(getActivity(),ConsultaValorSegundoPlano.class);
         intent.putExtra("limite", 150);
         getActivity().startService(intent);
+
     }
 
     @Override

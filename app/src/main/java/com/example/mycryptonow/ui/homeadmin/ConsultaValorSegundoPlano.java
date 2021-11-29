@@ -26,7 +26,7 @@ public class ConsultaValorSegundoPlano  extends IntentService {
                 contador++;
                 Intent intent1 = new Intent("broadcast");
                 LocalBroadcastManager.getInstance(this).sendBroadcast(intent1);
-                Thread.sleep(600000);
+                Thread.sleep(300000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
