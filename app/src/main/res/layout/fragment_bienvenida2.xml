@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.homeadmin.homeAdmin">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.Bienvenida.BienvenidaFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,39 +22,41 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/espaciado_amplio"
+                android:layout_marginTop="@dimen/espaciado_normal"
                 android:fontFamily="@font/robotoslab_bold"
-                android:text="@string/panel_control_API"
+                android:text="@string/bienvenido"
                 android:textSize="@dimen/titulo_principal" />
+
+            <TextView
+                android:id="@+id/tvNombreUsuarioHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                android:fontFamily="@font/robotoslab_semibold"
+                android:text="@string/app_nombre"
+                android:textSize="@dimen/grande_text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/espaciado_normal"
+                android:justificationMode="inter_word"
                 android:fontFamily="@font/robotoslab_regular"
-                android:text="@string/creditos"
-                android:textSize="@dimen/grande_text" />
+                android:layout_marginLeft="@dimen/espaciado_normal"
+                android:layout_marginRight="@dimen/espaciado_normal"
+                android:text="En esta aplicación podrás tener control sobre el valor actual de tus crypto monedas en el mercado. Navega en el menú para encontrar mas cosas interesantes. "
+                android:textSize="@dimen/pequenia_text" />
 
-
-            <ImageView
-                android:id="@+id/ivLogoSplash"
-                android:layout_marginTop="@dimen/espaciado_normal"
-                android:layout_width="@dimen/imagen_enorme"
-                android:layout_height="@dimen/imagen_enorme"
-                android:layout_gravity="center"
-                android:src="@color/purple_200"/>
-
-
-
-
-            <Button
-                android:id="@+id/btnActualizarCryptos"
+            <com.airbnb.lottie.LottieAnimationView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:text="@string/actualizar_precios_cryptos"
-                />
+                android:layout_height="300dp"
+                android:layout_marginTop="@dimen/espaciado_normal"
+                app:lottie_rawRes="@raw/bienvenida"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
+
 
 
         </LinearLayout>

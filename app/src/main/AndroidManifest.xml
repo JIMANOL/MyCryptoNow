@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.mycryptonow">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -49,6 +50,16 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".ui.homeadmin.ConsultaValorSegundoPlano"
+            tools:ignore="Instantiatable">
+        </service>
     </application>
 
 </manifest>

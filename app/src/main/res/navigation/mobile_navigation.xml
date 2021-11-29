@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_bienvenida">
 
     <fragment
         android:id="@+id/nav_home"
@@ -31,11 +31,11 @@
             app:destination="@id/nav_agregar_crypto" />
     </fragment>
 
-    <fragment
+    <!--<fragment
         android:id="@+id/nav_agregar_crypto"
         android:name="com.example.mycryptonow.ui.agregar.AgregarFragment"
         android:label="@string/menu_dialog_agregar"
-        tools:layout="@layout/fragment_agregar" />
+        tools:layout="@layout/fragment_agregar" /> -->
 
     <fragment
         android:id="@+id/nav_lista_accesos"
@@ -54,4 +54,29 @@
         android:name="com.example.mycryptonow.ui.detallecrypto.DetalleCryptoFragment"
         android:label="@string/detalle_crypto"
         tools:layout="@layout/fragment_detalle_crypto" />
+    <fragment
+        android:id="@+id/nav_admin_home"
+        android:name="com.example.mycryptonow.ui.homeadmin.homeAdmin"
+        android:label="@string/menu_home"
+        tools:layout="@layout/home_admin_fragment" />
+    <fragment
+        android:id="@+id/nav_bienvenida"
+        android:name="com.example.mycryptonow.ui.Bienvenida.BienvenidaFragment"
+        android:label="@string/bienvenido"
+        tools:layout="@layout/fragment_bienvenida2" />
+    <fragment
+        android:id="@+id/nav_reporte_errores"
+        android:name="com.example.mycryptonow.ui.reporteerrores.reporteErrores"
+        android:label="@string/menu_reporte_errores"
+        tools:layout="@layout/reporte_errores_fragment" />
+    <fragment
+        android:id="@+id/nav_agregar_crypto"
+        android:name="com.example.mycryptonow.ui.agregar.AgregarFragment"
+        android:label="@string/menu_agregar_crypto"
+        tools:layout="@layout/fragment_agregar" />
+    <fragment
+        android:id="@+id/nav_editar_crypto"
+        android:name="com.example.mycryptonow.ui.editar.EditarFragment"
+        android:label="@string/editar"
+        tools:layout="@layout/fragment_editar" />
 </navigation>

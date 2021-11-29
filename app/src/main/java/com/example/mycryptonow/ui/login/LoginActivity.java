@@ -19,9 +19,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.models.Ingresos;
 import com.example.mycryptonow.models.Usuario;
@@ -49,11 +51,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private LoginViewModel modelo;
     private Activity activity;
     private EditText etCorreo;
+    private LottieAnimationView cargarAnimacion;
+    private LinearLayout linearLayoutLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         //Inicializacion
         getSupportActionBar().hide();
@@ -69,6 +74,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnBuscarCorreo = findViewById(R.id.btnBuscarCorreo);
         tvMensaje = findViewById(R.id.tvMensajeLogin);
         etCorreo = findViewById(R.id.etCorreoLogin);
+        cargarAnimacion = findViewById(R.id.animacionCargarLogin);
+        linearLayoutLogin = findViewById(R.id.llLogin);
         modelo = new ViewModelProvider(this).get(LoginViewModel.class);
         //Comportamientos
         tvRregistrate.setOnClickListener(this);
@@ -88,22 +95,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
         });
+
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if(currentUser != null){
+            modelo.buscarCorroe(currentUser.getEmail(),activity);
+            linearLayoutLogin.setVisibility(View.GONE);
+            cargarAnimacion.setVisibility(View.VISIBLE);
+        }
     }
 
     private void mostrarMensaje(String mensaje) {
         Toast toast = Toast.makeText(this,mensaje,Toast.LENGTH_LONG);
         toast.show();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(activity, MainActivity.class);
-            activity.startActivity(intent);
-            activity.finish();
-        }
     }
 
 

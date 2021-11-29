@@ -36,12 +36,13 @@ public class LoginUsuarioViewModel extends ViewModel {
         });
     }
 
-    public void agregarIngresos(Ingresos ingresos, Activity activity){
+    public void agregarIngresos(Ingresos ingresos, Activity activity, Usuario usuario){
         database.agregarIngreso(ingresos, activity, new Respuesta() {
             @Override
             public void respuesta(Object respuesta) {
                 if (respuesta != null){
                     Intent intent = new Intent(activity, MainActivity.class);
+                    intent.putExtra("usuario",usuario);
                     activity.startActivity(intent);
                     activity.finish();
                 }else{

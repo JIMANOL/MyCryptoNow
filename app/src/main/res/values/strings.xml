@@ -61,7 +61,10 @@
     <string name="acerca">Acerca de...</string>
     <string name="universidad">Instituto Tecnologico de Toluca</string>
     <string name="especialidad">Ingenieria en sistemas computacionales</string>
-    <string name="alumno">Alumno: José Enrique Maldonado Verazas, Maximiliano Ovando Ramirez, Jesus Imanol Castano Gil.</string>
+    <string name="alumno">Alumno:</string>
+    <string name="nombre_max">Maximiliano Ovando Ramirez</string>
+    <string name="nombre_imanol">Jesus Imanol Castano Gil</string>
+    <string name="nombre_enrique">José Enrique Maldonado Verazas</string>
     <string name="materia">Desarrollo móvil</string>
     <string name="profesor">Profesora: Rocío Elizabeth Pulido Alba</string>
     <string name="clase">Lunes,Martes,Jueves de 5 a 7 PM</string>
@@ -105,16 +108,22 @@
     <string name="menu_lista_mis_cryptos">Lista mis cryptos</string>
     <string name="menu_dialog_agregar">Agregar</string>
     <string name="menu_lista_accesos">Lista mis accesos</string>
-    <string name="menu_creditos">Creditos</string>
+    <string name="menu_agregar_crypto">Agregar crypto</string>
+    <string name="menu_editar_crypto">Editar crypto</string>
+    <string name="menu_eliminar_crypto">Eliminar crypto</string>
+    <string name="menu_reporte_errores">Reportar Error</string>
     <string name="menu_logout">Logout</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="action_settings">Settings</string>
+    <string name="menu_creditos">Creditos</string>
     <string name="action_logout">Logout</string>
     <string name="action_salir">Salir</string>
 
     //Cuadro de Dialogo
     <string name="detalles">DETALLES</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

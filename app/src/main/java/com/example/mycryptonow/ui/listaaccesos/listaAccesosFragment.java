@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.models.Ingresos;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -78,17 +79,24 @@ public class listaAccesosFragment extends Fragment implements View.OnClickListen
         System.out.println("-->"+databaseReference.toString());
 
         ////////////////////////////////LISTAR ACCESOS////////////////////////////////////////////
-        databaseReference.child("accesos").addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("informacion_ingresos").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot){
                 ListaAccesos.clear();
                 Accesos.clear();
                 for(DataSnapshot objSnapshot: snapshot.getChildren()){
-                    Ingresos acceso = objSnapshot.getValue(Ingresos.class);
-                    ListaAccesos.add("(" + acceso.getId() + ") ");
-                    Accesos.add(acceso);
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, ListaAccesos);
-                    list.setAdapter(adapter);
+                    System.out.println("-->" + FirebaseAuth.getInstance().getCurrentUser().getUid()+"=="+objSnapshot.getKey());
+
+                    if(FirebaseAuth.getInstance().getCurrentUser().getUid().toString().equals(objSnapshot.getKey().toString())){
+                    for(DataSnapshot objSnapshot2: objSnapshot.getChildren()){
+                        Ingresos acceso = new Ingresos();
+                        acceso.fromSnapshot(objSnapshot2);
+                        ListaAccesos.add("(" + acceso.getFecha() + ") ");
+                        Accesos.add(acceso);
+                        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, ListaAccesos);
+                        list.setAdapter(adapter);
+                    }
+                    }
                 }
 
             }
@@ -111,10 +119,10 @@ public class listaAccesosFragment extends Fragment implements View.OnClickListen
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 View dialogView=LayoutInflater.from(getContext()).inflate(R.layout.cuadro_dialogo,null);
                 String datos =
-                        "ID: "+Accesos.get(i).getId()+"\r\n";
-                datos+="FECHA: "+Accesos.get(i).getFecha()+"\r\n";
-                datos+="DISPOSITIVO: "+Accesos.get(i).getDispositivo()+"\r\n";
-                datos+="UBICACIÓN: "+Accesos.get(i).getDireccion()+"\r\n";
+                        "ID: \n"+Accesos.get(i).getId()+"\n";
+                datos+="FECHA: \n"+Accesos.get(i).getFecha()+"\n";
+                datos+="DISPOSITIVO: \n"+Accesos.get(i).getDispositivo()+"\n";
+                datos+="UBICACIÓN: \n"+Accesos.get(i).getDireccion()+"\n";
                 ((TextView)dialogView.findViewById(R.id.tvpInfoDetallada)).setText(datos);
                 AlertDialog.Builder dialogo=new  AlertDialog.Builder(getContext());
                 dialogo.setTitle("Datos del Acceso");
