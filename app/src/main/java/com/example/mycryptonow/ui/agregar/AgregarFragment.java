@@ -29,10 +29,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mycryptonow.R;
+import com.example.mycryptonow.db.Realtime;
 import com.example.mycryptonow.models.Datum;
 import com.example.mycryptonow.models.MiCrypto;
 import com.example.mycryptonow.models.Usuario;
 import com.example.mycryptonow.ui.listamiscryptos.ListaMisCryptosFragment;
+
+import com.example.mycryptonow.ui.registro.RegistroViewModel;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
 
 import java.io.File;
 import java.util.Calendar;
@@ -47,6 +53,8 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
     private Button btnAgregar;
     public static String t;
     private TextView tvMensajedireccion,tvMensajecantidad,tvMensajenombre;
+    Realtime database;
+    private AgregarViewModel modelo;
 
     public static AgregarFragment newInstance() {
         return new AgregarFragment();
@@ -171,7 +179,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
         boolean ban=true;
 
         direccionWallet = etDireccion.getText().toString().trim();
-       
+
         cantidadCryptos = etCantidad.getText().toString().trim();
         if(!cantidadCryptos.matches("[0-9]+")){
             ban=false;
@@ -198,10 +206,9 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
             mostrarMensaje("Ingrese todos los campos solicitados, por favor.");
         }else{
             if(ban){
-                mostrarMensaje("si entro");
-                mostrarMensaje(t);
-                //MiCrypto miCrypto = new MiCrypto(direccionWallet,cantidadCryptos,nombreBilletera,nombreCrypto);
-                //modelo.crearUsuario(usuario,contrasenia,this);
+
+                MiCrypto miCrypto = new MiCrypto(direccionWallet,cantidadCryptos,nombreBilletera,nombreCrypto);
+                modelo.agregarCrypto(miCrypto,getActivity());
             }else{
                 mostrarMensaje("Campos incorrectos, por favor verifique su informacion");
             }
