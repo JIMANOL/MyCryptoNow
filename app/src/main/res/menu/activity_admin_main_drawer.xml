@@ -9,23 +9,45 @@
             android:icon="@drawable/ic_home"
             android:title="@string/bienvenido" />
         <item
-            android:id="@+id/nav_admin_home"
-            android:icon="@drawable/ic_home"
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_lista_cryptos"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/lista"
             android:title="@string/menu_lista_cryptos" />
         <item
+            android:id="@+id/nav_lista_mis_cryptos"
+            android:icon="@drawable/lista"
+            android:title="@string/menu_lista_mis_cryptos" />
+        <item
             android:id="@+id/nav_lista_accesos"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/lista"
             android:title="@string/menu_lista_accesos" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_agregar_crypto"
+            android:icon="@drawable/add"
+            android:title="@string/menu_agregar_crypto" />
+        <item
+            android:id="@+id/nav_editar_crypto"
+            android:icon="@drawable/editar"
+            android:title="@string/menu_editar_crypto" />
+        <item
+            android:id="@+id/nav_eliminar_crypto"
+            android:icon="@drawable/eliminar"
+            android:title="@string/menu_eliminar_crypto" />
     </group>
 
     <group>
         <item
             android:id="@+id/nav_creditos"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/info"
             android:title="@string/menu_creditos" />
+        <item
+            android:id="@+id/nav_reporte_errores"
+            android:icon="@drawable/editar"
+            android:title="@string/menu_reporte_errores" />
     </group>
 </menu>

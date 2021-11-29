@@ -35,8 +35,8 @@ public class AgregarFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_agregar, container, false);
 
-        Datum dato = (Datum) getArguments().getSerializable("hola");
-        Log.d("Paso dato",String.valueOf(dato.getId()));
+        //Datum dato = (Datum) getArguments().getSerializable("hola");
+        //Log.d("Paso dato",String.valueOf(dato.getId()));
 
         iniciarCompoentes(root);
 

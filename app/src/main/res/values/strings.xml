@@ -108,13 +108,17 @@
     <string name="menu_lista_mis_cryptos">Lista mis cryptos</string>
     <string name="menu_dialog_agregar">Agregar</string>
     <string name="menu_lista_accesos">Lista mis accesos</string>
-    <string name="menu_creditos">Creditos</string>
+    <string name="menu_agregar_crypto">Agregar crypto</string>
+    <string name="menu_editar_crypto">Editar crypto</string>
+    <string name="menu_eliminar_crypto">Eliminar crypto</string>
+    <string name="menu_reporte_errores">Reportar Error</string>
     <string name="menu_logout">Logout</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="action_settings">Settings</string>
+    <string name="menu_creditos">Creditos</string>
     <string name="action_logout">Logout</string>
     <string name="action_salir">Salir</string>
 
