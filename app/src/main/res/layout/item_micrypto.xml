@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/espaciado_normal"
+    android:layout_marginBottom="@dimen/espaciado_minima"
+    android:theme="@style/fondo_card_view"
+    android:id="@+id/cvCart">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/espaciado_normal">
+
+        <TextView
+            android:id="@+id/tvmicryptoTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Crypto"
+            android:textColor="@color/white"
+            android:textSize="@dimen/grande_text"
+            android:fontFamily="@font/robotoslab_bold"
+            android:theme="@style/sin_fondo"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="@dimen/espaciado_normal"
+            android:background="@color/dorado"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/espaciado_normal"
+            android:orientation="horizontal"
+            android:theme="@style/sin_fondo">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:text="Direccion:"
+                android:textSize="@dimen/normal_text"
+                android:fontFamily="@font/robotoslab_bold"/>
+
+            <TextView
+                android:id="@+id/tvmicryptoDireccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:text="direccion"
+                android:textSize="@dimen/normal_text"
+                android:fontFamily="@font/robotoslab_regular"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/espaciado_normal"
+            android:orientation="horizontal"
+            android:theme="@style/sin_fondo">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:text="Nombre:"
+                android:textSize="@dimen/normal_text"
+                android:fontFamily="@font/robotoslab_bold"/>
+
+            <TextView
+                android:id="@+id/tvmicryptoNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:text="nombre"
+                android:textSize="@dimen/normal_text"
+                android:fontFamily="@font/robotoslab_regular"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/espaciado_normal"
+            android:orientation="horizontal"
+            android:theme="@style/sin_fondo">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:text="Cantidad:"
+                android:textSize="@dimen/normal_text"
+                android:fontFamily="@font/robotoslab_bold"/>
+
+            <TextView
+                android:id="@+id/tvmicryptoCantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/espaciado_pequenia"
+                android:text="cantidad"
+                android:textSize="@dimen/normal_text"
+                android:fontFamily="@font/robotoslab_regular"/>
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

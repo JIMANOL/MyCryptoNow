@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,13 +22,20 @@ import android.widget.Toast;
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.models.Datum;
 import com.example.mycryptonow.ui.agregar.AgregarFragment;
+import com.example.mycryptonow.ui.listacryptos.ListaCryptosAdapter;
 import com.example.mycryptonow.ui.listacryptos.ListaCryptosFragment;
+import com.example.mycryptonow.ui.listacryptos.ListaCryptosViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 public class ListaMisCryptosFragment extends Fragment {
 
     private ListarMisCryptosViewModel mViewModel;
     private FloatingActionButton btnAgregarCrypto;
+    private RecyclerView recyclerView;
+    //private ListaMisCryptosAdapter adapter = new ListaMisCryptosAdapter();
+
 
     public static ListaMisCryptosFragment newInstance() {
         return new ListaMisCryptosFragment();
@@ -39,7 +48,25 @@ public class ListaMisCryptosFragment extends Fragment {
 
         initComponents(root);
 
+
+        recyclerView=(RecyclerView) root.findViewById(R.id.RecyclerId);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        llenarLista();
+
+
+        //ListaMisCryptosAdapter adapter=new ListaMisCryptosAdapter(listaMisCryptos);
+        //recyclerView.setAdapter(adapter);
+
+
+
         return root;
+    }
+
+    private void llenarLista() {
+
+        //listaMisCryptos.add(new ListaMisCryptos("direccion",5, "cartera","bitcoin"));
+
     }
 
     private void initComponents(View root) {
