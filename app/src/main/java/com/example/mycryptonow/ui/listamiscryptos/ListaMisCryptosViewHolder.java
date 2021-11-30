@@ -1,7 +1,9 @@
 package com.example.mycryptonow.ui.listamiscryptos;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -44,7 +46,24 @@ public class ListaMisCryptosViewHolder extends RecyclerView.ViewHolder {
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                modelo.eliminarCrypto(miCrypto);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(tvNombre.getContext());
+                builder.setMessage("¿De sea eliminar este objeto?")
+                        .setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                modelo.eliminarCrypto(miCrypto);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        });
+                builder.create();
+                builder.show();
+
+
             }
         });
 
