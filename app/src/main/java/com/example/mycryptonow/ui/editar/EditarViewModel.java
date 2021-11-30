@@ -15,7 +15,7 @@ public class EditarViewModel extends ViewModel {
         return miCryptoMutableLiveData;
     }
 
-    /* public void editarCrypto(MiCrypto miCrypto){
+     public void editarCrypto(MiCrypto miCrypto){
 
        database.actualizarMiCrypto(miCrypto,new Respuesta() {
             @Override
@@ -27,5 +27,5 @@ public class EditarViewModel extends ViewModel {
             }
         });
 
-    }*/
+    }
 }

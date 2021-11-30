@@ -39,7 +39,7 @@ public class EditarFragment extends Fragment implements View.OnClickListener, Ad
     public static String t;
     private TextView tvMensajedireccion,tvMensajecantidad,tvMensajenombre;
     Realtime database;
-    private AgregarViewModel modelo;
+    private EditarViewModel modelo;
 
     public static EditarFragment newInstance() {
         return new EditarFragment();
@@ -60,6 +60,18 @@ public class EditarFragment extends Fragment implements View.OnClickListener, Ad
         EditTextComponentes(root);
         ButtonComponentes(root);
         SpinnerComponentes(root);
+
+        mViewModel = new ViewModelProvider(this).get(EditarViewModel.class);
+        mViewModel.getCrypto().observe(getActivity(), new Observer() {
+            @Override
+            public void onChanged(Object o) {
+                if(o!=null){
+                    mostrarMensaje("Se actualizo correctamente");
+                }else{
+                    mostrarMensaje("Ocurrio un error");
+                }
+            }
+        });
 
 
     }
@@ -97,8 +109,8 @@ public class EditarFragment extends Fragment implements View.OnClickListener, Ad
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(EditarViewModel.class);
-        // TODO: Use the ViewModel
+
+
     }
 
     @Override
@@ -159,7 +171,7 @@ public class EditarFragment extends Fragment implements View.OnClickListener, Ad
             if(ban){
 
                 MiCrypto miCrypto = new MiCrypto(direccionWallet,cantidadCryptos,nombreBilletera,nombreCrypto);
-                modelo.agregarCrypto(miCrypto);
+                modelo.editarCrypto(miCrypto);
                 limpiardatos();
             }else{
                 mostrarMensaje("Campos incorrectos, por favor verifique su informacion");
@@ -202,7 +214,7 @@ public class EditarFragment extends Fragment implements View.OnClickListener, Ad
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getId()){
-            case R.id.spntipoAg:
+            case R.id.spntipoEd:
                 if(position!=0){
                     t=parent.getItemAtPosition(position).toString();
                 }else{

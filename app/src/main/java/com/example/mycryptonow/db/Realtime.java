@@ -165,7 +165,7 @@ public class Realtime {
 
 
 
-    public void actualizarMiCrypto(MiCrypto crypto, Activity activity, Respuesta respuesta){
+    public void actualizarMiCrypto(MiCrypto crypto,  Respuesta respuesta){
         databaseReference.child(COLECCION_MIS_CRYPTOS_NOMBRE).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(crypto.getId()).setValue(crypto).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
