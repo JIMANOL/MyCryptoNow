@@ -40,6 +40,7 @@ public class EditarFragment extends Fragment implements View.OnClickListener, Ad
     private TextView tvMensajedireccion,tvMensajecantidad,tvMensajenombre;
     Realtime database;
     private EditarViewModel modelo;
+    private MiCrypto miCrypto;
 
     public static EditarFragment newInstance() {
         return new EditarFragment();
@@ -50,19 +51,44 @@ public class EditarFragment extends Fragment implements View.OnClickListener, Ad
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_editar, container, false);
 
-
         iniciarCompoentes(root);
+        miCrypto=(MiCrypto) getArguments().getSerializable("hola");
+        insertarDatos();
 
         return root;
     }
+
+    private void insertarDatos() {
+        etDireccion.setText(miCrypto.getDireccionWallet());
+        etCantidad.setText(miCrypto.getCantidadCryptos());
+        etNombre.setText(miCrypto.getNombreBilletera());
+
+        if(miCrypto.getNombreCrypto().equals("Bitcoin")){
+            spnTipoCryp.setSelection(1);
+        }
+        if(miCrypto.getNombreCrypto().equals("Ethereum")){
+            spnTipoCryp.setSelection(2);
+        }
+        if(miCrypto.getNombreCrypto().equals("Litecoin")){
+            spnTipoCryp.setSelection(3);
+        }
+        if(miCrypto.getNombreCrypto().equals("NEO")){
+            spnTipoCryp.setSelection(4);
+        }else{
+            spnTipoCryp.setSelection(0);
+        }
+
+
+    }
+
     private void iniciarCompoentes(View root) {
 
         EditTextComponentes(root);
         ButtonComponentes(root);
         SpinnerComponentes(root);
 
-        mViewModel = new ViewModelProvider(this).get(EditarViewModel.class);
-        mViewModel.getCrypto().observe(getActivity(), new Observer() {
+        modelo = new ViewModelProvider(this).get(EditarViewModel.class);
+        modelo.getCrypto().observe(getActivity(), new Observer() {
             @Override
             public void onChanged(Object o) {
                 if(o!=null){
