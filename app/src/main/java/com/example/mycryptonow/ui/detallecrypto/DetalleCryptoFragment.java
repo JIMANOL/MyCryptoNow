@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.interfaces.Respuesta;
+import com.example.mycryptonow.libreriasPropias.MiMarcadorPersonalizado;
 import com.example.mycryptonow.models.Datum;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -35,6 +36,8 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
@@ -47,6 +50,7 @@ import java.util.List;
 
 public class DetalleCryptoFragment extends Fragment {
 
+    private final MiMarcadorPersonalizado tMarket = new MiMarcadorPersonalizado();
     private DetalleCryptoViewModel mViewModel;
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd_MM_YYYY_hh_mm_ss");
     private DecimalFormat decimalFormat = new DecimalFormat("#00.00");
@@ -65,6 +69,7 @@ public class DetalleCryptoFragment extends Fragment {
     private TextView tvCapitalizacion;
     private TextView tvVariacion1h;
     private TextView tvVariacion24h;
+
 
     public static DetalleCryptoFragment newInstance() {
         return new DetalleCryptoFragment();
@@ -166,11 +171,35 @@ public class DetalleCryptoFragment extends Fragment {
 
     private void initData() {
         lcGrafica.setBackgroundColor(Color.parseColor("#0f0f0f"));
-        setDescription("Grafica de precio"); // Descripción del conjunto
+        setDescription("Grafica de precio "+crypto.getName()); // Descripción del conjunto
+        lcGrafica.setMarker(tMarket);
+        lcGrafica.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+                tMarket.refreshContent(e, h);
+            }
+
+            @Override
+            public void onNothingSelected() {}
+        });
+        setLegend();
         setYAxis(); // Establecer eje Y
         setXAxis(); // Establecer el eje X
         setChartData(); // Establecer datos de icono
+
     }
+
+
+    private void setLegend() {
+        Legend legend = lcGrafica.getLegend();
+        legend.setForm (Legend.LegendForm.LINE); // graphics: line
+        legend.setFormSize (14f); // Tamaño gráfico
+        legend.setFormLineWidth (9f); // dibuja un rectángulo plano con un ancho de línea menor que el siguiente tamaño
+        legend.setTextColor(Color.WHITE);
+        legend.setYOffset(3f);
+        legend.setHorizontalAlignment (Legend.LegendHorizontalAlignment.LEFT); // Alineación de la leyenda en la línea horizontal: alineación derecha
+    }
+
 
 
 
@@ -179,6 +208,7 @@ public class DetalleCryptoFragment extends Fragment {
         Description description = new Description();
         description.setText(descriptionStr);
         description.setTextColor(Color.WHITE);
+        description.setYOffset(3f);
 
         // Calcular la posición de descripción
         WindowManager wm = (WindowManager) getActivity().getSystemService(getActivity().WINDOW_SERVICE);
@@ -198,7 +228,7 @@ public class DetalleCryptoFragment extends Fragment {
         final YAxis yAxisLeft = lcGrafica.getAxisLeft();
         yAxisLeft.setGranularity (2f); // Establecer el tamaño del intervalo
         yAxisLeft.setTextSize (2f); // El tamaño del texto es 12dp
-        yAxisLeft.setTextColor (Color.WHITE); // El color del texto es gris
+        yAxisLeft.setTextColor (Color.WHITE);
     }
 
     private void setXAxis() {
@@ -248,12 +278,16 @@ public class DetalleCryptoFragment extends Fragment {
         lineDataSet1.setMode (LineDataSet.Mode.CUBIC_BEZIER); // Establecer en curva Bezier
         lineDataSet1.setCubicIntensity (0.15f); // intensidad
         lineDataSet1.setCircleColor (Color.WHITE); // Establezca el punto en color
-        lineDataSet1.setCircleRadius(5f);
+        lineDataSet1.setCircleRadius(3f);
+        lineDataSet1.setDrawValues(false);
         lineDataSet1.setLineWidth (2f);
         lineDataSet1.setDrawFilled (true); // habilitar el llenado
         lineDataSet1.setFillColor (Color.WHITE); // Relleno blanco
         lineDataSet1.setFillAlpha (65); // Transparencia
         // Establezca el ancho de línea en 2
+
+
+
         lcGrafica.setData(lineData);
     }
 

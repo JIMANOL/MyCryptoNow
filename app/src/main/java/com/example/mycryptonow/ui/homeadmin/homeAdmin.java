@@ -44,6 +44,8 @@ public class homeAdmin extends Fragment {
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/YYYY");
     private Button btnActualizar;
     private TextView reloj;
+    private Thread hilo;
+    private int time5;
 
     public static homeAdmin newInstance() {
         return new homeAdmin();
@@ -125,10 +127,10 @@ public class homeAdmin extends Fragment {
     }
 
     public void temporizador(){
-        Thread hilo = new Thread(new Runnable() {
+        hilo = new Thread(new Runnable() {
             @Override
             public void run() {
-                int time5=300000;
+                time5=300000;
                 int minutos=5;
                 int segundos = 0;
 
@@ -155,7 +157,7 @@ public class homeAdmin extends Fragment {
     public void procesoSegundoPlano(){
         temporizador();
         Intent intent = new Intent(getActivity(),ConsultaValorSegundoPlano.class);
-        intent.putExtra("limite", 150);
+        intent.putExtra("limite", ControlCreditosCMC.maximoDeCreditos);
         getActivity().startService(intent);
 
     }
@@ -173,6 +175,8 @@ public class homeAdmin extends Fragment {
     public void onPause() {
         super.onPause();
         LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(broadcastReceiver);
+        time5=0;
+
     }
 
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
