@@ -19,13 +19,15 @@
 
             android:textSize="30dp"
             android:gravity="center"/>
-        <ImageView
-            android:id="@+id/ivcFotoED"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/ivcQRED"
+            android:layout_marginTop="@dimen/espaciado_normal"
             android:layout_width="196dp"
             android:layout_height="170dp"
             android:layout_gravity="center"
-            android:contentDescription="@string/edqr"
-            app:srcCompat="@drawable/ic_baseline_edit_24"/>
+            app:lottie_rawRes="@raw/qredit"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -45,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:enabled="false"
+             
                 android:layout_margin="20dp"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -100,15 +102,7 @@
                 android:textSize="18dp"
                 android:layout_margin="20dp"
                 />
-            <Button
-                android:id="@+id/btnregresarEd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/btnregresar"
-                android:textSize="18dp"
-                android:layout_margin="20dp"
-                />
+
 
 
         </LinearLayout>

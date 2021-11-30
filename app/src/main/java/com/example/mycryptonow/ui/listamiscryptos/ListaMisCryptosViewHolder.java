@@ -51,9 +51,9 @@ public class ListaMisCryptosViewHolder extends RecyclerView.ViewHolder {
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Datum dato = new Datum();
+
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("hola", dato);
+                bundle.putSerializable("hola", miCrypto);
                 Navigation.findNavController(view).navigate(R.id.nav_editar_crypto,bundle);
             }
         });
