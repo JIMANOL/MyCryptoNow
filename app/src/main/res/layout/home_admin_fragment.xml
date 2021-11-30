@@ -42,7 +42,8 @@
                 android:layout_width="@dimen/imagen_enorme"
                 android:layout_height="@dimen/imagen_enorme"
                 android:layout_gravity="center"
-                android:src="@color/purple_200"/>
+                android:src="@color/purple_200"
+                android:visibility="gone"/>
 
 
 
@@ -59,7 +60,8 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:visibility="gone"/>
 
 
         </LinearLayout>

@@ -53,8 +53,6 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
     private Spinner spnTipoCryp;
     private Button btnAgregar;
     public static String t;
-    private TextView tvMensajedireccion,tvMensajecantidad,tvMensajenombre;
-    Realtime database;
     private AgregarViewModel modelo;
 
     public static AgregarFragment newInstance() {
@@ -65,7 +63,6 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_agregar, container, false);
-
 
         iniciarCompoentes(root);
 
@@ -95,9 +92,6 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
         etDireccion=root.findViewById(R.id.etdireccionAg);
         etNombre=root.findViewById(R.id.etnombreAg);
         etCantidad=root.findViewById(R.id.etcantidadAg);
-        /*tvMensajedireccion=root.findViewById(R.id.tvMensajedirec);
-        tvMensajecantidad=root.findViewById(R.id.tvMensajecant);
-        tvMensajenombre=root.findViewById(R.id.tvMensajenom);*/
     }
     private void ButtonComponentes(View root){
 

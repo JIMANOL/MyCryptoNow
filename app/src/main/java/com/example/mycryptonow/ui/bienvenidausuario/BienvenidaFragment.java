@@ -70,8 +70,8 @@ public class BienvenidaFragment extends Fragment {
         pie = root.findViewById(R.id.prueba);
         list=new ArrayList<>();
 
-        list.add(new PieEntry(56,"masculino"));
-        list.add(new PieEntry(44,"hembra"));
+        list.add(new PieEntry(10,"Otros"));
+        list.add(new PieEntry(90,"Bitcoin"));
 
         PieDataSet pieDataSet=new PieDataSet(list,"");
         PieData pieData=new PieData(pieDataSet);
@@ -81,7 +81,7 @@ public class BienvenidaFragment extends Fragment {
         //pie.setBackgroundColor(Color.GRAY);
 
         // Establecer el color de cada dato
-        pieDataSet.setColors(Color.RED,Color.BLUE);
+        pieDataSet.setColors(Color.BLACK,Color.YELLOW);
         // El radio del círculo hueco del sector de la entidad se establece en 0, es un círculo en lugar de un anillo
         pie.setHoleRadius(60);
         // El radio del círculo blanco semitransparente en el medio se oculta cuando se establece en 0
@@ -89,18 +89,18 @@ public class BienvenidaFragment extends Fragment {
         // Establecer el color del círculo central
         //pie.setHoleColor(Color.CYAN);
         // Establecer la palabra en la parte central (generalmente se establece cuando el círculo blanco en el medio no está oculto)
-        pie.setCenterText("Proporción hombre a mujer");
+        pie.setCenterText("Cryptos");
         // Establecer el color de fuente de la palabra central
-        pie.setCenterTextColor(Color.RED);
+        pie.setCenterTextColor(Color.BLACK);
         // Establece el tamaño de fuente de la palabra central
-        pie.setCenterTextSize(16);
+        pie.setCenterTextSize(14);
         // Establece el tamaño de fuente de la descripción (hombre mujer en la imagen)
-        pie.setEntryLabelTextSize(10);
+        //pie.setEntryLabelTextSize(10);
         // Establece el tamaño de fuente de los datos (44 56 en la figura)
-        pieDataSet.setValueTextSize(10);
+        //pieDataSet.setValueTextSize(10);
         // Establecer la ubicación de la descripción
-        pieDataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
-        pieDataSet.setValueLinePart1Length(0.1f);// Establecer la longitud de la línea de conexión de descripción
+        //pieDataSet.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        //pieDataSet.setValueLinePart1Length(0.1f);// Establecer la longitud de la línea de conexión de descripción
         // Establecer la ubicación de los datos
         pieDataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
         pieDataSet.setValueLinePart2Length(0.6f);// Establecer la longitud de la línea de conexión de datos
@@ -108,7 +108,7 @@ public class BienvenidaFragment extends Fragment {
         pieDataSet.setValueLineColor(Color.WHITE);
 
         // Para el funcionamiento de una cadena de letras en la esquina inferior derecha
-        pie.getDescription().setEnabled(true);                                    // Si mostrar la descripción en la esquina inferior derecha
+        pie.getDescription().setEnabled(false);                                    // Si mostrar la descripción en la esquina inferior derecha
         pie.getDescription().setText("Esta es la forma de modificar esa cadena de inglés");        // Modificar la visualización de las letras en la esquina inferior derecha
         pie.getDescription().setTextSize(20);                                        //tamaño de fuente
         pie.getDescription().setTextColor(Color.RED);                          //color de fuente
@@ -124,7 +124,7 @@ public class BienvenidaFragment extends Fragment {
         pie.invalidate();
 
         // Animación (si usa animación, puede omitir el paso de actualización de datos)
-        pie.animateY(3000);  // El parámetro de animación en el eje Y es el tiempo de ejecución de la animación en milisegundos
+        pie.animateY(1000);  // El parámetro de animación en el eje Y es el tiempo de ejecución de la animación en milisegundos
 //        line.animateX(2000);  // Animación del eje X
 //        line.animateXY(2000,2000);// Animación mixta de dos ejes XY
 

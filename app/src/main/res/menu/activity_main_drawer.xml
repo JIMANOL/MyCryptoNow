@@ -9,10 +9,6 @@
             android:icon="@drawable/ic_bienvenida"
             android:title="@string/bienvenido" />
         <item
-            android:id="@+id/nav_videoinfo"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_video_info" />
-        <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
@@ -39,5 +35,9 @@
             android:id="@+id/nav_reporte_errores"
             android:icon="@drawable/ic_error"
             android:title="@string/menu_reporte_errores" />
+        <item
+            android:id="@+id/nav_videoinfo"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_video_info" />
     </group>
 </menu>

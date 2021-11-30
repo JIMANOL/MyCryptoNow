@@ -18,7 +18,7 @@
     <string name="registro_solicitud_datos">Ingrese los siguientes datos</string>
     <string name="cantidad_mxn">Cantidad en MXN</string>
     <string name="signo_moneda">$</string>
-    <string name="cantidad_moneda">1,000,000</string>
+    <string name="cantidad_moneda">$ 1,200,000</string>
     <string name="cantidad_criptos">Distribuido en :</string>
     <string name="creacion_exitosa">Se creo correctamente</string>
 
@@ -106,7 +106,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_lista_cryptos">Lista Cryptos</string>
     <string name="menu_lista_mis_cryptos">Lista mis cryptos</string>
-    <string name="menu_video_info">Video</string>
+    <string name="menu_video_info">Video Ayuda</string>
     <string name="menu_dialog_agregar">Agregar</string>
     <string name="menu_lista_accesos">Lista mis accesos</string>
     <string name="menu_agregar_crypto">Agregar crypto</string>
