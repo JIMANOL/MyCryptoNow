@@ -19,13 +19,15 @@
 
             android:textSize="30dp"
             android:gravity="center"/>
-        <ImageView
-            android:id="@+id/ivcFotoED"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/ivcQRED"
+            android:layout_marginTop="@dimen/espaciado_normal"
             android:layout_width="196dp"
             android:layout_height="170dp"
             android:layout_gravity="center"
-            android:contentDescription="@string/edqr"
-            app:srcCompat="@drawable/ic_baseline_edit_24"/>
+            app:lottie_rawRes="@raw/qredit"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
 
         <TextView
             android:layout_width="match_parent"
