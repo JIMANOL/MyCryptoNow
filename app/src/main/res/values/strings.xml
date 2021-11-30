@@ -106,6 +106,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_lista_cryptos">Lista Cryptos</string>
     <string name="menu_lista_mis_cryptos">Lista mis cryptos</string>
+    <string name="menu_video_info">Video</string>
     <string name="menu_dialog_agregar">Agregar</string>
     <string name="menu_lista_accesos">Lista mis accesos</string>
     <string name="menu_agregar_crypto">Agregar crypto</string>
