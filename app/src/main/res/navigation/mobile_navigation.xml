@@ -37,6 +37,11 @@
         android:name="com.example.mycryptonow.ui.listaaccesos.listaAccesosFragment"
         android:label="@string/lista_accesos"
         tools:layout="@layout/lista_accesos_fragment" />
+    <fragment
+        android:id="@+id/nav_videoinfo"
+        android:name="com.example.mycryptonow.ui.videoinfo.VideoInformativo"
+        android:label="@string/menu_video_info"
+        tools:layout="@layout/video_informativo_fragment" />
 
     <fragment
         android:id="@+id/nav_creditos"
