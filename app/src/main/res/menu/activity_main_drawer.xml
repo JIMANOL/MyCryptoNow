@@ -9,6 +9,10 @@
             android:icon="@drawable/ic_bienvenida"
             android:title="@string/bienvenido" />
         <item
+            android:id="@+id/nav_videoinfo"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_video_info" />
+        <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
