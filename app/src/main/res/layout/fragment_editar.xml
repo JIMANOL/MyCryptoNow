@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:enabled="false"
+             
                 android:layout_margin="20dp"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -102,15 +102,7 @@
                 android:textSize="18dp"
                 android:layout_margin="20dp"
                 />
-            <Button
-                android:id="@+id/btnregresarEd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/btnregresar"
-                android:textSize="18dp"
-                android:layout_margin="20dp"
-                />
+
 
 
         </LinearLayout>

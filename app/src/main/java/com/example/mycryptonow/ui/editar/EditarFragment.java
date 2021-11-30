@@ -196,7 +196,11 @@ public class EditarFragment extends Fragment implements View.OnClickListener, Ad
         }else{
             if(ban){
 
-                MiCrypto miCrypto = new MiCrypto(direccionWallet,cantidadCryptos,nombreBilletera,nombreCrypto);
+                miCrypto.setDireccionWallet(direccionWallet);
+                miCrypto.setCantidadCryptos(cantidadCryptos);
+                miCrypto.setNombreBilletera(nombreBilletera);
+                miCrypto.setNombreCrypto(nombreCrypto);
+
                 modelo.editarCrypto(miCrypto);
                 limpiardatos();
             }else{
