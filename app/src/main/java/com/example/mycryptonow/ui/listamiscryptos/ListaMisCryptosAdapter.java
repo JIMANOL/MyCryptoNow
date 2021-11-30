@@ -1,65 +1,49 @@
 package com.example.mycryptonow.ui.listamiscryptos;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycryptonow.R;
-
-import org.jetbrains.annotations.NotNull;
+import com.example.mycryptonow.models.Datum;
+import com.example.mycryptonow.models.MiCrypto;
+import com.example.mycryptonow.ui.listacryptos.ListaCryptosViewHolder;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.MissingFormatArgumentException;
 
-public class ListaMisCryptosAdapter extends RecyclerView.Adapter<ListaMisCryptosAdapter.ViewHolderMisCryptos> {
-
-    //ArrayList<ListaMisCryptos> listaMisCryptos;
-    //public ListaMisCryptosAdapter(ArrayList<ListaMisCryptos> listaMisCryptos) {}
-
+public class ListaMisCryptosAdapter extends RecyclerView.Adapter<ListaMisCryptosViewHolder> {
+    private ArrayList<MiCrypto> datosLista = new ArrayList<>();
+    private ListarMisCryptosViewModel modelo;
 
     @NonNull
-    @NotNull
     @Override
-    public ViewHolderMisCryptos onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_micrypto,null,false);
-        return new ViewHolderMisCryptos(view);
+    public ListaMisCryptosViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ListaMisCryptosViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_micrypto,parent,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull ViewHolderMisCryptos holder, int position) {
-        //holder.tvTipo.setText(listaMisCryptos.get(position).getTipo());
-        //holder.tvDireccion.setText(listaMisCryptos.get(position).getDireccion());
+    public void onBindViewHolder(@NonNull ListaMisCryptosViewHolder holder, int position) {
+        MiCrypto miCrypto = datosLista.get(position);
+        holder.setIfo(miCrypto,modelo);
 
-       // holder.tvCantidad.setText(listaMisCryptos.get(position).getCantidad());
-        //holder.tvNombre.setText(listaMisCryptos.get(position).getNombre());
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
-        //listaMisCryptos.size();
+        return datosLista.size();
     }
 
-    public class ViewHolderMisCryptos extends RecyclerView.ViewHolder {
+    public void setDatosLista(ArrayList<MiCrypto> datosLista) {
+        this.datosLista = datosLista;
+        notifyDataSetChanged();
+    }
 
-        TextView tvTipo,tvDireccion,tvNombre,tvCantidad;
-
-
-
-        public ViewHolderMisCryptos(@NonNull @NotNull View itemView) {
-            super(itemView);
-
-            tvTipo=(TextView) itemView.findViewById(R.id.tvmicryptoTipo);
-            tvDireccion=(TextView) itemView.findViewById(R.id.tvmicryptoDireccion);
-            tvNombre=(TextView) itemView.findViewById(R.id.tvmicryptoNombre);
-            tvCantidad=(TextView) itemView.findViewById(R.id.tvmicryptoCantidad);
-
-
-
-        }
+    public void setModelo(ListarMisCryptosViewModel modelo) {
+        this.modelo = modelo;
     }
 }

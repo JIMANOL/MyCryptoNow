@@ -21,15 +21,18 @@
             android:text="@string/agregar"
             android:textSize="30dp" />
 
-        <ImageView
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/ivcQRNP"
+            android:layout_marginTop="@dimen/espaciado_normal"
             android:layout_width="196dp"
             android:layout_height="170dp"
             android:layout_gravity="center"
-            android:contentDescription="@string/qr"
-            app:srcCompat="@drawable/ic_baseline_qr_code_scanner_24" />
+            app:lottie_rawRes="@raw/qr"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
 
         <TextView
+            android:layout_marginTop="@dimen/espaciado_normal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
@@ -103,10 +106,7 @@
                 android:textSize="18dp" />
 
 
-
         </LinearLayout>
-
-
     </LinearLayout>
 
 </ScrollView>

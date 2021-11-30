@@ -116,6 +116,20 @@
                 android:fontFamily="@font/robotoslab_regular"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_marginTop="@dimen/espaciado_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnMisCryptoEliminar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_eliminar_crypto"></Button>
+
+        </LinearLayout>
+
 
 
 

@@ -1,7 +1,6 @@
 package com.example.mycryptonow.ui.listamiscryptos;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -17,15 +16,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.mycryptonow.R;
 import com.example.mycryptonow.models.Datum;
-import com.example.mycryptonow.ui.agregar.AgregarFragment;
-import com.example.mycryptonow.ui.listacryptos.ListaCryptosAdapter;
-import com.example.mycryptonow.ui.listacryptos.ListaCryptosFragment;
-import com.example.mycryptonow.ui.listacryptos.ListaCryptosViewModel;
+import com.example.mycryptonow.models.MiCrypto;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -34,7 +33,8 @@ public class ListaMisCryptosFragment extends Fragment {
     private ListarMisCryptosViewModel mViewModel;
     private FloatingActionButton btnAgregarCrypto;
     private RecyclerView recyclerView;
-    //private ListaMisCryptosAdapter adapter = new ListaMisCryptosAdapter();
+    private ListaMisCryptosAdapter adapter = new ListaMisCryptosAdapter();
+    private ArrayList<MiCrypto> listaMiCryptos = new ArrayList<>();
 
 
     public static ListaMisCryptosFragment newInstance() {
@@ -47,32 +47,50 @@ public class ListaMisCryptosFragment extends Fragment {
         View root =inflater.inflate(R.layout.fragment_lista_mis_cryptos, container, false);
 
         initComponents(root);
+        initRecyclerView();
+        adapter.setDatosLista(listaMiCryptos);
+        adapter.setModelo(mViewModel);
+        recyclerView.setAdapter(adapter);
+        mViewModel.buscarMisCryptos(getActivity());
 
 
-        recyclerView=(RecyclerView) root.findViewById(R.id.RecyclerId);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-        llenarLista();
+                mViewModel.buscarMisCryptos(getActivity());
 
+            }
 
-        //ListaMisCryptosAdapter adapter=new ListaMisCryptosAdapter(listaMisCryptos);
-        //recyclerView.setAdapter(adapter);
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("DataBase Realtime", "loadPost:onCancelled", databaseError.toException());
+            }
+        };
 
-
+        FirebaseDatabase.getInstance().getReference().addValueEventListener(postListener);
 
         return root;
     }
 
-    private void llenarLista() {
-
-        //listaMisCryptos.add(new ListaMisCryptos("direccion",5, "cartera","bitcoin"));
-
-    }
 
     private void initComponents(View root) {
 
         btnAgregarCrypto = root.findViewById(R.id.btnAgregarCrypto);
         btnAgregarCrypto.setVisibility(View.VISIBLE);
+        recyclerView= root.findViewById(R.id.rvListaMiscryptos);
+        mViewModel = new ViewModelProvider(this).get(ListarMisCryptosViewModel.class);
+
+
+        mViewModel.getMisCrptos().observe(getActivity(), new Observer<ArrayList<MiCrypto>>() {
+            @Override
+            public void onChanged(ArrayList<MiCrypto> miCryptos) {
+                adapter.setDatosLista(miCryptos);
+                //recyclerView.setAdapter(adapter);
+            }
+        });
+
 
         btnAgregarCrypto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,11 +105,9 @@ public class ListaMisCryptosFragment extends Fragment {
         });
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(ListarMisCryptosViewModel.class);
-        // TODO: Use the ViewModel
+    private void initRecyclerView() {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
     }
 
 }

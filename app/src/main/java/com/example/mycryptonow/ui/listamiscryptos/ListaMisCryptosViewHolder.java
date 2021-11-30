@@ -1,24 +1,50 @@
 package com.example.mycryptonow.ui.listamiscryptos;
 
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycryptonow.R;
+import com.example.mycryptonow.models.Datum;
+import com.example.mycryptonow.models.MiCrypto;
 
-public class ListaMisCryptosViewHolder {
-    private TextView tvTipo;
+import java.util.ArrayList;
+
+public class ListaMisCryptosViewHolder extends RecyclerView.ViewHolder {
+    private TextView tvTipoCrypto;
     private TextView tvDireccion;
-    private TextView tvNombre;
     private TextView tvCantidad;
+    private TextView tvNombre;
+    private Button btnEliminar;
 
     public ListaMisCryptosViewHolder(@NonNull View itemView) {
-        //super(itemView);
-        tvTipo = itemView.findViewById(R.id.tvmicryptoTipo);
-        tvDireccion = itemView.findViewById(R.id.tvRankcmcListaCryptos);
-        tvNombre = itemView.findViewById(R.id.tvNombreListaCryptos);
-        tvCantidad = itemView.findViewById(R.id.tvSimboloListaCryptos);
+        super(itemView);
+        tvTipoCrypto = itemView.findViewById(R.id.tvmicryptoTipo);
+        tvDireccion = itemView.findViewById(R.id.tvmicryptoDireccion);
+        tvCantidad = itemView.findViewById(R.id.tvmicryptoCantidad);
+        tvNombre = itemView.findViewById(R.id.tvmicryptoNombre);
+        btnEliminar = itemView.findViewById(R.id.btnMisCryptoEliminar);
 
+    }
+
+    public void  setIfo(MiCrypto miCrypto, ListarMisCryptosViewModel modelo){
+        tvTipoCrypto.setText(miCrypto.getNombreCrypto());
+        tvDireccion.setText(miCrypto.getDireccionWallet());
+        tvCantidad.setText(miCrypto.getCantidadCryptos());
+        tvNombre.setText(miCrypto.getNombreBilletera());
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                modelo.eliminarCrypto(miCrypto);
+            }
+        });
     }
 }

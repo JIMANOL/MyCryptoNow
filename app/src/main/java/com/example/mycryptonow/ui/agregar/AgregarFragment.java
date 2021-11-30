@@ -81,7 +81,12 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
         modelo.getCrypto().observe(getActivity(), new Observer() {
             @Override
             public void onChanged(Object o) {
-                mostrarMensaje("Se agrego correctamente");
+
+                if(o != null){
+                    mostrarMensaje("Se agrego correctamente");
+                }else{
+                    mostrarMensaje("No se pudo agregar");
+                }
             }
         });
 
@@ -216,7 +221,7 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
             if(ban){
 
                 MiCrypto miCrypto = new MiCrypto(direccionWallet,cantidadCryptos,nombreBilletera,nombreCrypto);
-                modelo.agregarCrypto(miCrypto,getActivity());
+                modelo.agregarCrypto(miCrypto);
             }else{
                 mostrarMensaje("Campos incorrectos, por favor verifique su informacion");
             }
