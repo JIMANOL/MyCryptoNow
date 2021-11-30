@@ -23,7 +23,7 @@ public class ListaMisCryptosViewHolder extends RecyclerView.ViewHolder {
     private TextView tvDireccion;
     private TextView tvCantidad;
     private TextView tvNombre;
-    private Button btnEliminar;
+    private Button btnEliminar,btnEditar;
 
     public ListaMisCryptosViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -32,6 +32,7 @@ public class ListaMisCryptosViewHolder extends RecyclerView.ViewHolder {
         tvCantidad = itemView.findViewById(R.id.tvmicryptoCantidad);
         tvNombre = itemView.findViewById(R.id.tvmicryptoNombre);
         btnEliminar = itemView.findViewById(R.id.btnMisCryptoEliminar);
+        btnEditar = itemView.findViewById(R.id.btnMisCryptoEditar);
 
     }
 
@@ -46,5 +47,18 @@ public class ListaMisCryptosViewHolder extends RecyclerView.ViewHolder {
                 modelo.eliminarCrypto(miCrypto);
             }
         });
+
+        btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Datum dato = new Datum();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("hola", dato);
+                Navigation.findNavController(view).navigate(R.id.nav_editar_crypto,bundle);
+            }
+        });
+
+
+
     }
 }

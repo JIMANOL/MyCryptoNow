@@ -222,12 +222,24 @@ public class AgregarFragment extends Fragment implements View.OnClickListener, A
 
                 MiCrypto miCrypto = new MiCrypto(direccionWallet,cantidadCryptos,nombreBilletera,nombreCrypto);
                 modelo.agregarCrypto(miCrypto);
+                limpiardatos();
             }else{
                 mostrarMensaje("Campos incorrectos, por favor verifique su informacion");
             }
         }
 
 
+
+    }
+
+    private void limpiardatos() {
+        etDireccion.setText("");
+        etNombre.setText("");
+        etCantidad.setText("");
+
+        ArrayAdapter<CharSequence> tipoCryptAdapter = ArrayAdapter.createFromResource(getContext(), R.array.tipo, android.R.layout.simple_spinner_item);
+        t="";
+        spnTipoCryp.setAdapter(tipoCryptAdapter);
 
     }
 
