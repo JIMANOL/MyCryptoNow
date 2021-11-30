@@ -65,7 +65,9 @@ public class homeAdmin extends Fragment {
                 if(controlCreditosCMC2 != null){
                     if((simpleDateFormat.format(new Date()).equalsIgnoreCase(controlCreditosCMC2.getFecha()))){
                         controlCreditosCMC = controlCreditosCMC2;
-                        temporizador();
+                        if(time5<25000){
+                            temporizador();
+                        }
                     }else{
                         controlCreditosCMC = new ControlCreditosCMC(0,simpleDateFormat.format(new Date()));
                     }
@@ -130,7 +132,7 @@ public class homeAdmin extends Fragment {
         hilo = new Thread(new Runnable() {
             @Override
             public void run() {
-                time5=300000;
+                time5=250000;
                 int minutos=5;
                 int segundos = 0;
 
@@ -138,7 +140,7 @@ public class homeAdmin extends Fragment {
                     reloj.setText("Tiempo= "+(minutos+":"+segundos));
                     if(segundos==0){
                         minutos--;
-                        segundos=60;
+                        segundos=59;
                     }else{
                         segundos--;
                     }
@@ -155,7 +157,6 @@ public class homeAdmin extends Fragment {
     }
 
     public void procesoSegundoPlano(){
-        temporizador();
         Intent intent = new Intent(getActivity(),ConsultaValorSegundoPlano.class);
         intent.putExtra("limite", ControlCreditosCMC.maximoDeCreditos);
         getActivity().startService(intent);

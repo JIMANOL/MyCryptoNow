@@ -30,7 +30,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
+import java.util.Arrays;
+import java.util.Collections;
 
 
 public class listaAccesosFragment extends Fragment implements View.OnClickListener{
@@ -104,6 +105,8 @@ public class listaAccesosFragment extends Fragment implements View.OnClickListen
             public void onCancelled(@NonNull DatabaseError error){}
 
         });
+
+
         ////////////////////////////////////////////////////////////////////////////
 
         /*if(registros.isEmpty()){

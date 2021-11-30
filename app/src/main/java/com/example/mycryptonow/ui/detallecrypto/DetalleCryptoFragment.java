@@ -226,6 +226,8 @@ public class DetalleCryptoFragment extends Fragment {
     private void setYAxis() {
         // eje Y izquierdo
         final YAxis yAxisLeft = lcGrafica.getAxisLeft();
+        final YAxis yAxisRight = lcGrafica.getAxisRight();
+        yAxisRight.setDrawLabels(false);
         yAxisLeft.setGranularity (2f); // Establecer el tamaño del intervalo
         yAxisLeft.setTextSize (2f); // El tamaño del texto es 12dp
         yAxisLeft.setTextColor (Color.WHITE);
@@ -247,7 +249,7 @@ public class DetalleCryptoFragment extends Fragment {
         // Datos analógicos 1
         List<Entry> lineaInfo = new ArrayList<>();
         int i =0;
-        int diferencia = cryptos.size()-100;
+        int diferencia = cryptos.size()-200;
 
         for (Datum crypto : cryptos) {
             if(diferencia <= 0){

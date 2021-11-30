@@ -47,7 +47,7 @@ public class MiMarcadorPersonalizado implements IMarker {
         canvas.drawPath(path, paint);
         // dibujar rectángulo
         RectF rect = new RectF(
-                posX - Utils.convertDpToPixel(24),
+                posX - Utils.convertDpToPixel(38),
                 posY - Utils.convertDpToPixel(41),
                 posX + Utils.convertDpToPixel(38),
                 posY - Utils.convertDpToPixel(17));
@@ -61,7 +61,7 @@ public class MiMarcadorPersonalizado implements IMarker {
             textPaint.setTypeface(Typeface.DEFAULT_BOLD);
             canvas.drawText(str,
                     // x = rectángulo izquierda coordenada + (rectángulo ancho-ancho de texto) / 2
-                    rect.left + (Utils.convertDpToPixel(48) - Utils.calcTextWidth(textPaint, str)) / 2,
+                    rect.left + (Utils.convertDpToPixel(70) - Utils.calcTextWidth(textPaint, str)) / 2,
                     // y = coordenada del rectángulo + (altura del rectángulo-altura del texto) / 2
                     rect.bottom - (Utils.convertDpToPixel(24) - Utils.calcTextHeight(textPaint, str)) / 2,
                     textPaint);
